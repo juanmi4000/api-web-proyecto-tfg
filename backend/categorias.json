@@ -1,0 +1,134 @@
+[
+  {
+    "id": "ebd8e888-ea8f-46f0-9bf2-4b59a85bfaa6",
+    "nombre": "Misterio"
+  },
+  {
+    "id": "0dcbd6cf-f682-451c-a7d9-8c56f1ce299e",
+    "nombre": "Seinen"
+  },
+  {
+    "id": "732b671a-5a3d-49b3-999b-975c512832e3",
+    "nombre": "Sobrenatural"
+  },
+  {
+    "id": "440bd2ef-3f89-4b32-869c-b9f6e8a95139",
+    "nombre": "Comedia"
+  },
+  {
+    "id": "9be75e01-7fcd-431c-9f8c-aa910e911d88",
+    "nombre": "Erótico"
+  },
+  {
+    "id": "a5ce454b-5a11-45ed-822b-523b2c7bdd2c",
+    "nombre": "Fantasía"
+  },
+  {
+    "id": "061d80ba-6dee-425b-b2af-2d60ddfb4753",
+    "nombre": "Harem"
+  },
+  {
+    "id": "929d7238-02a8-43d5-a13c-106ffb735e54",
+    "nombre": "Romance"
+  },
+  {
+    "id": "3744b841-9935-4e17-a7b3-c4f24b6ee704",
+    "nombre": "Escuela"
+  },
+  {
+    "id": "7a1ad56e-c7d9-4f1d-8af7-495362d73ad9",
+    "nombre": "Ciencia Ficción"
+  },
+  {
+    "id": "0c9fa726-ffa6-430e-8128-6a76260d8e71",
+    "nombre": "Acción"
+  },
+  {
+    "id": "c5efbbc4-0973-4ad7-968d-367535a063d2",
+    "nombre": "Shounen"
+  },
+  {
+    "id": "cd3e278e-fa14-4233-8cdc-e114871813eb",
+    "nombre": "Superpoderes"
+  },
+  {
+    "id": "25ff3a37-0a8d-4a8f-bdcf-3ef336f87a9d",
+    "nombre": "Drama"
+  },
+  {
+    "id": "67d96268-9733-45c4-b693-e6bfb6748ea2",
+    "nombre": "Militar"
+  },
+  {
+    "id": "fb010f1d-0bbf-41f0-84ca-b1423957561c",
+    "nombre": "Policiaca"
+  },
+  {
+    "id": "f6d0a728-0800-44aa-9f81-1455d2d0d658",
+    "nombre": "Aventura"
+  },
+  {
+    "id": "266fb6f2-ee88-4ca9-a510-f464c6a6f1cd",
+    "nombre": "Mágico"
+  },
+  {
+    "id": "41ac5fea-2343-4f60-bbfb-3bc308f195eb",
+    "nombre": "Cotidiano"
+  },
+  {
+    "id": "06882cb4-0e67-4b5c-9f71-8a59d33877cb",
+    "nombre": "Demónios"
+  },
+  {
+    "id": "0145d291-a880-4842-9569-85ff4d07a7f4",
+    "nombre": "Mecha"
+  },
+  {
+    "id": "ec074b89-3315-4585-8492-cfd543e08c2d",
+    "nombre": "Terror"
+  },
+  {
+    "id": "0a84c1b4-6aae-4ac3-ada4-fc4fd2628a2e",
+    "nombre": "Espacio"
+  },
+  {
+    "id": "725566e3-ca1a-4a6c-a0e6-5fefaaf7afb4",
+    "nombre": "Inteligencia Artificial"
+  },
+  {
+    "id": "9e3204cf-bc9f-4dc8-a0ed-74d8469bee42",
+    "nombre": "Shoujo"
+  },
+  {
+    "id": "c634aa9d-3f3d-4505-930c-52a24731ad7f",
+    "nombre": "Thriller"
+  },
+  {
+    "id": "24bf11ea-0023-49c9-a740-942a4f78bcd0",
+    "nombre": "Histórica"
+  },
+  {
+    "id": "b4cbdc87-6694-407b-92f2-79f5f855f0c3",
+    "nombre": "Samurái"
+  },
+  {
+    "id": "145d5a96-646b-46b0-ae2c-d111b1aa8619",
+    "nombre": "Deportes"
+  },
+  {
+    "id": "6daefd86-e572-4515-801f-4ec9a9d29f0e",
+    "nombre": "Música"
+  },
+  {
+    "id": "fdc2bc9f-715a-49a3-9088-08535be5f960",
+    "nombre": "Parodia"
+  },
+  {
+    "id": "e1a69563-5517-4b47-bdb8-5097b28eb11d",
+    "nombre": "Juegos"
+  },
+  {
+    "id": "2787194f-79d6-4a40-9397-0147b6415aa7",
+    "nombre": "Niños"
+  }
+]
