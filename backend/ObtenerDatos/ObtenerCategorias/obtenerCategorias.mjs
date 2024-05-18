@@ -1,6 +1,9 @@
-import { json } from "express";
-import animes from "../../animes.json" assert { type: "json" };
 import fs from "node:fs";
+
+// leer un JSON lo recomendado
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url); // tiene la dirección del archivo actual
+const animes = require("../../animes.json");
 
 let categorias = [];
 
@@ -23,7 +26,7 @@ categorias.forEach((categoria) => {
   });
 });
 fs.writeFileSync(
-  "../../categorias.json",
+  "../../categorias-copia.json",
   JSON.stringify(jsonCategorias, null, 2)
 );
 

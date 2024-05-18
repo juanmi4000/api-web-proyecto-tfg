@@ -1,4 +1,4 @@
-import animes from "./animes-copy.json" assert { type: "json" };
+import animes from "./animes-copy.json" with { type: "json" };
 import fs from "node:fs";
 
 animes.forEach((anime) => {
