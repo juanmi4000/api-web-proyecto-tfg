@@ -1,5 +1,5 @@
 import zod, { ZodError } from 'zod'
-import { AnimePost } from '../tipos/tiposAnime'
+import { AnimePost } from '../tipos/anime'
 
 const esquemaAnime = zod.object({
   estudio: zod.string({
