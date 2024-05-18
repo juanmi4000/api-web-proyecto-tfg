@@ -2,7 +2,7 @@ import { Router } from 'express'
 import animes from '../json/animes.json'
 import { randomUUID } from 'node:crypto'
 import { ZodError } from 'zod'
-import { Anime } from '../tipos/tiposAnime'
+import { Anime } from '../tipos/anime'
 import { validarAnime, validarAnimeParcial } from '../esquemas/animes'
 
 export const routerAnimes = Router()
