@@ -1,0 +1,5 @@
+### ❌ => indica error
+### ✅ => indica éxito
+
+### Conseguir todas las categorias
+GET http://localhost:3000/categorias 
