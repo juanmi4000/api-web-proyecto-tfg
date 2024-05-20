@@ -22,18 +22,28 @@ for (let i = 0; i < 20; i++) {
       } = results[0];
       const objeto = {
         id: randomUUID(),
-        nombre: name,
-        username: login.username,
+        nombre: {
+          nombrePila: name.first,
+          apellido: name.last,
+        },
+        usuario: login.username,
         email: email,
-        password: login.password,
+        contrasena: login.password,
         telefono: phone,
         genero: gender,
-        calle: location.street,
+        calle: {
+          nombre: location.street.name,
+          numero: location.street.number,
+        },
         ciudad: city,
         estado: state,
         pais: country,
         codigoPostal: postdate,
-        picture: picture,
+        imagen: {
+          grande: picture.large,
+          mediana: picture.medium,
+          miniatura: picture.thumbnail,
+        },
       };
       usuarios.push(objeto);
     });
