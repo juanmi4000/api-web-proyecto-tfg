@@ -1,8 +1,6 @@
 import { Router } from 'express'
-import categorias from '../json/categorias.json'
+import { CategoriasControlador } from '../controladores/categorias'
 
 export const routerCategorias = Router()
 
-routerCategorias.get('/', (_req, res) => {
-  return res.json(categorias)
-})
+routerCategorias.get('/', CategoriasControlador.getAll)
