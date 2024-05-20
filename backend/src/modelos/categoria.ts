@@ -4,7 +4,7 @@ import { Categoria } from '../tipos/typos'
 const validarCategorias = categoria as Categoria[]
 
 export const CategoriaModelo = {
-  async getAll() {
+  async getAll () {
     return validarCategorias
   }
 }

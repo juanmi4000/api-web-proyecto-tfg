@@ -2,6 +2,7 @@ import { Anime, AnimePost } from '../tipos/typos'
 import { ParsedQs } from 'qs'
 import animes from '../json/animes.json'
 import { randomUUID } from 'node:crypto'
+import { validate as isUuid } from 'uuid'
 
 const validarAnimes = animes as Anime[]
 
@@ -17,32 +18,41 @@ export const AnimeModelo = {
     }
     return validarAnimes
   },
-  getPorId: async ({ id }: { id: string }) => {
+  getPorId: async ({ id }: { id: Anime['id'] | string }) => {
+    if (!isUuid(id)) {
+      return null
+    }
     const anime = validarAnimes.find((anime) => anime.id === id)
     return anime
   },
   async crearAnime (input: AnimePost) {
-    const nuevaPelicula = {
+    const nuevoAnime = {
       id: randomUUID(),
       ...input
     }
 
-    animes.push(nuevaPelicula)
+    animes.push(nuevoAnime)
 
-    return nuevaPelicula
+    return nuevoAnime
   },
-  async eliminarAnime ({ id }: { id: string }) {
+  async eliminarAnime ({ id }: { id: Anime['id'] | string }) {
+    if (!isUuid(id)) {
+      return null
+    }
     const indiceAnime = validarAnimes.findIndex((anime) => anime.id === id)
     if (indiceAnime < 0) {
-      return null
+      return undefined
     }
     animes.splice(indiceAnime, 1)
     return indiceAnime
   },
-  async actualizarAnime ({ id, ...input }: { id: string, [key: string]: any }) {
+  async actualizarAnime ({ id, ...input }: { id: Anime['id'] | string, [key: string]: any }) {
+    if (!isUuid(id)) {
+      return null
+    }
     const indiceAnime = validarAnimes.findIndex((anime) => anime.id === id)
     if (indiceAnime === -1) {
-      return null
+      return undefined
     }
     const actualizarAnime = {
       ...animes[indiceAnime],

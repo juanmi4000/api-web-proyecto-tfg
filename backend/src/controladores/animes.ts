@@ -21,9 +21,11 @@ export const AnimesControlador = {
   getPorId: asyncHandler(async (req: Request, res: Response) => {
     try {
       const { id } = req.params
-
       const anime = await AnimeModelo.getPorId({ id })
-      if (anime == null) {
+      if (anime === null) {
+        return res.status(400).json({ message: 'La id no sigue el patrón correcto' })
+      }
+      if (anime === undefined) {
         return res.status(404).json({ message: 'Anime no encontrado' })
       }
       return res.json(anime)
@@ -50,7 +52,9 @@ export const AnimesControlador = {
     try {
       const { id } = req.params
       const animeEncontrado = await AnimeModelo.eliminarAnime({ id })
-
+      if (animeEncontrado == null) {
+        return res.status(400).json({ message: 'La id no sigue el patrón correcto' })
+      }
       if (animeEncontrado == null) {
         return res.status(404).json({ error: 'Animes no encontrado' })
       }
@@ -73,6 +77,9 @@ export const AnimesControlador = {
 
       const animeActualizado = await AnimeModelo.actualizarAnime({ id, ...resultado })
       if (animeActualizado == null) {
+        return res.status(400).json({ message: 'La id no sigue el patrón correcto' })
+      }
+      if (animeActualizado === undefined) {
         return res.status(404).json({ message: 'Anime no encontrado' })
       }
       return res.json(animeActualizado)
