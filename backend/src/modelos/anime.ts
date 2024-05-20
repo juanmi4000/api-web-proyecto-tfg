@@ -1,4 +1,4 @@
-import { Anime, AnimePost } from '../tipos/anime'
+import { Anime, AnimePost } from '../tipos/typos'
 import { ParsedQs } from 'qs'
 import animes from '../json/animes.json'
 import { randomUUID } from 'node:crypto'

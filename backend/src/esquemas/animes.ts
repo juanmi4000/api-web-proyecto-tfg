@@ -1,5 +1,5 @@
 import zod, { ZodError } from 'zod'
-import { AnimePost } from '../tipos/anime'
+import { AnimePost } from '../tipos/typos'
 
 const esquemaAnime = zod.object({
   estudio: zod.string({
@@ -36,7 +36,7 @@ const esquemaAnime = zod.object({
   ),
   generos: zod.array(
     zod.enum(
-      ['Acción', 'Aventura', 'Fantasía', 'Mágico', 'Shounen', 'Superpoderes'],
+      ['Misterio', 'Seinen', 'Sobrenatural', 'Comedia', 'Erótico', 'Fantasía', 'Harem', 'Romance', 'Escuela', 'Ciencia Ficción', 'Acción', 'Shounen', 'Superpoderes', 'Drama', 'Militar', 'Policiaca', 'Aventura', 'Mágico', 'Cotidiano', 'Demónios', 'Mecha', 'Terror', 'Espacio', 'Inteligencia Artificial', 'Shoujo', 'Thriller', 'Histórica', 'Samurái', 'Deportes', 'Música', 'Parodia', 'Juegos', 'Niños'],
       {
         invalid_type_error: 'Alguna de las generos no existe'
       }
