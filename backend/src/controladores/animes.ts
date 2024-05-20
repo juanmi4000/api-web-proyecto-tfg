@@ -4,7 +4,7 @@ import { asyncHandler } from '../middlewares/manejadorAsync'
 import { validarAnime, validarAnimeParcial } from '../esquemas/animes'
 import { ZodError } from 'zod'
 
-export const AnimesController = {
+export const AnimesControlador = {
   getAll: asyncHandler(async (req: Request, res: Response) => {
     try {
       const { categoria } = req.query

@@ -1,14 +1,14 @@
 import { Router } from 'express'
-import { AnimesController } from '../controladores/animes'
+import { AnimesControlador } from '../controladores/animes'
 
 export const routerAnimes = Router()
 
-routerAnimes.get('/', AnimesController.getAll)
+routerAnimes.get('/', AnimesControlador.getAll)
 
-routerAnimes.get('/:id', AnimesController.getPorId)
+routerAnimes.get('/:id', AnimesControlador.getPorId)
 
-routerAnimes.post('/', AnimesController.crearAnime)
+routerAnimes.post('/', AnimesControlador.crearAnime)
 
-routerAnimes.patch('/:id', AnimesController.actualizarAnime)
+routerAnimes.patch('/:id', AnimesControlador.actualizarAnime)
 
-routerAnimes.delete('/:id', AnimesController.eliminarAnime)
+routerAnimes.delete('/:id', AnimesControlador.eliminarAnime)
