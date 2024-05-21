@@ -1,0 +1,7 @@
+### Utilizo la extensión REST Client
+
+### ❌ => indica error
+### ✅ => indica éxito
+
+### Conseguir todas las categorias
+GET http://localhost:4002/categorias 

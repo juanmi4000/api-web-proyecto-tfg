@@ -1,0 +1,83 @@
+### Utilizo la extensión REST Client
+
+### ❌ => indica error
+### ✅ => indica éxito
+
+### Conseguir todos los animes
+GET http://localhost:4002/animes
+
+### Conseguir un anime ❌
+GET http://localhost:4002/animes/1
+
+### Conseguir un anime ✅
+GET http://localhost:4002/animes/f60d4bb1-e802-40f6-9f95-0e0aef6516c2
+
+### Filtrar animes por categoría ❌
+GET http://localhost:4002/animes?categoria=mech
+
+### Filtrar animes por categoría ✅
+GET http://localhost:4002/animes?categoria=MECHA
+
+### Crear un anime ❌
+POST http://localhost:4002/animes
+Content-Type: application/json
+
+{
+  "estudio": "Toei Animation",
+  "generos": [
+    "Acción",
+    "Aventura",
+    "Fantasía",
+    "Shounen",
+    "Superpoderes"
+  ],
+  "descripcion": "One Piece narra la historia de un joven llamado Monkey D. Luffy, que inspirado por su amigo pirata Shanks, comienza un viaje para alcanzar su sueño, ser el Rey de los piratas, para lo cual deberá encontrar el tesoro One Piece dejado por el anterior rey de los piratas Gol D. Roger.",
+  "titulo": {
+    "enlace": "https://myanimelist.net/anime/21/One_Piece",
+    "texto": "One Piece"  
+  }
+}
+
+### Crear un anime ✅
+POST http://localhost:4002/animes
+Content-Type: application/json
+
+{
+  "estudio": "Toei Animation",
+  "generos": [
+    "Acción",
+    "Aventura",
+    "Fantasía",
+    "Shounen",
+    "Superpoderes"
+  ],
+  "descripcion": "One Piece narra la historia de un joven llamado Monkey D. Luffy, que inspirado por su amigo pirata Shanks, comienza un viaje para alcanzar su sueño, ser el Rey de los piratas, para lo cual deberá encontrar el tesoro One Piece dejado por el anterior rey de los piratas Gol D. Roger.",
+  "titulo": {
+    "enlace": "https://myanimelist.net/anime/21/One_Piece",
+    "texto": "One Piece"  
+  },
+  "fechaInicio": "20/10/1999"
+}
+
+### Actualizar un anime ❌ 
+PATCH http://localhost:4002/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28
+Content-Type: application/json
+
+{
+  "estudio" : "Toei Animation",
+  "fechaInicio" : 1234
+}
+
+### Actualizar un anime ✅ y el id no puede ser modificado porque el id no está en las validaciones
+PATCH http://localhost:4002/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28
+Content-Type: application/json
+
+{
+  "id" : "1234",
+  "estudio" : "Toei Animation",
+  "fechaInicio" : "20/10/1999"
+}
+
+### Eliminar un anime 
+DELETE http://localhost:4002/animes/f60d4bb1-e802-40f6-9f95-0e0aef6516c2
+

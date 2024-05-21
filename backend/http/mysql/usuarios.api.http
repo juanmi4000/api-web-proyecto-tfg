@@ -1,0 +1,88 @@
+### Utilizo la extensión REST Client
+
+### ❌ => indica error
+### ✅ => indica éxito
+
+### Conseguir todos los usuarios
+GET http://localhost:4002/usuarios
+
+### Conseguir un usuario ❌
+GET http://localhost:4002/usuarios/bad7ab23-88c6-4e3a-8209-25e4e900fc56
+
+### Conseguir un usuario ✅
+GET http://localhost:4002/usuarios/bad7ac23-88c6-4e3a-8209-25e4e900fc56
+
+### Crear un usuario ❌
+POST http://localhost:4002/usuarios
+Content-Type: application/json
+
+{
+    "usuario": "kaneki",
+    "email": "kaneki.pai@example.com",
+    "contrasena": "kaneki",
+    "telefono": "699999999",
+    "genero": "male",
+    "calle": {
+      "nombre": "Flores",
+      "numero": 34
+    },
+    "imagen": {
+      "grande": "https://randomuser.me/api/portraits/women/53.jpg",
+      "mediana": "https://randomuser.me/api/portraits/med/women/53.jpg",
+      "miniatura": "https://randomuser.me/api/portraits/thumb/women/53.jpg"
+    }
+}
+
+### Crear un usuario ✅
+POST http://localhost:4002/usuarios
+Content-Type: application/json
+
+{
+    "nombre": {
+      "nombrePila": "Juanma",
+      "apellido": "Garcia"
+    },
+    "usuario": "kaneki",
+    "email": "kaneki.pai@example.com",
+    "contrasena": "kaneki",
+    "telefono": "699999999",
+    "genero": "male",
+    "calle": {
+      "nombre": "Flores",
+      "numero": 34
+    },
+    "imagen": {
+      "grande": "https://randomuser.me/api/portraits/women/53.jpg",
+      "mediana": "https://randomuser.me/api/portraits/med/women/53.jpg",
+      "miniatura": "https://randomuser.me/api/portraits/thumb/women/53.jpg"
+    }
+}
+
+### Actualizar un usuario ❌
+PATCH http://localhost:4002/usuarios/3fd2718e-d2b3-4e1c-a6a6-1d8875144b95
+Content-Type: application/json
+
+{
+    "calle": {
+      "nombre": "Flores",
+      "numero": "34"
+    }
+}
+
+### Actualizar un usuario ✅ y el id no puede ser modificado porque el id no está en las validaciones
+PATCH http://localhost:4002/usuarios/3fd2718e-d2b3-4e1c-a6a6-1d8875144b95
+Content-Type: application/json
+
+{
+    "id": "SELECT * FROM usuarios",
+    "nombre": {
+      "nombrePila": "Pepito",
+      "apellido": "Grillo"
+    }
+}
+
+### Eliminar un usuario ❌ (comprobar si no funciona con la id incorrecta)
+DELETE http://localhost:4002/usuarios/7ac23-88c6-4e3a-8209-25e4e900fc56
+
+### Eliminar un usuario ✅
+DELETE http://localhost:4002/usuarios/bad7ac23-88c6-4e3a-8209-25e4e900fc56
