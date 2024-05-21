@@ -1,14 +1,21 @@
 import { Router } from 'express'
 import { UsuariosControlador } from '../controladores/usuarios'
+import { UsuarioModeloInter } from '../tipos/typos'
 
-export const routerUsuarios = Router()
+export function crearUsuariosRouter ({ usuarioModelo }: { usuarioModelo: UsuarioModeloInter }): Router {
+  const routerUsuarios = Router()
 
-routerUsuarios.get('/', UsuariosControlador.getAll)
+  const usuariosRouter = new UsuariosControlador({ usuarioModelo })
 
-routerUsuarios.get('/:id', UsuariosControlador.getPorId)
+  routerUsuarios.get('/', usuariosRouter.getAll)
 
-routerUsuarios.post('/', UsuariosControlador.crearUsuario)
+  routerUsuarios.get('/:id', usuariosRouter.getPorId)
 
-routerUsuarios.delete('/:id', UsuariosControlador.eliminarUsuario)
+  routerUsuarios.post('/', usuariosRouter.crearUsuario)
 
-routerUsuarios.patch('/:id', UsuariosControlador.actualizarUsuario)
+  routerUsuarios.delete('/:id', usuariosRouter.eliminarUsuario)
+
+  routerUsuarios.patch('/:id', usuariosRouter.actualizarUsuario)
+
+  return routerUsuarios
+}

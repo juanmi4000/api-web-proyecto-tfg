@@ -1,13 +1,13 @@
-import { Anime, AnimePost } from '../tipos/typos'
+import { Anime, AnimePost } from '../../tipos/typos'
 import { ParsedQs } from 'qs'
-import animes from '../json/animes.json'
+import animes from '../../json/animes.json'
 import { randomUUID } from 'node:crypto'
 import { validate as isUuid } from 'uuid'
 
 const validarAnimes = animes as Anime[]
 
 export const AnimeModelo = {
-  async getAll ({ genero }: { genero: string | string[] | ParsedQs | ParsedQs[] | undefined }) {
+  getAll: async ({ genero }: { genero: string | string[] | ParsedQs | ParsedQs[] | undefined }) => {
     if (genero != null && !Array.isArray(genero) && typeof genero === 'string') {
       const animeFilrado: Anime[] = validarAnimes.filter((anime) => anime.generos.some((categoria) => genero.toLowerCase() === categoria.toLowerCase()))
       if (animeFilrado.length !== 0) {
@@ -25,7 +25,7 @@ export const AnimeModelo = {
     const anime = validarAnimes.find((anime) => anime.id === id)
     return anime
   },
-  async crearAnime (input: AnimePost) {
+  crearAnime: async (input: AnimePost) => {
     const nuevoAnime = {
       id: randomUUID(),
       ...input
@@ -35,7 +35,7 @@ export const AnimeModelo = {
 
     return nuevoAnime
   },
-  async eliminarAnime ({ id }: { id: Anime['id'] | string }) {
+  eliminarAnime: async ({ id }: { id: Anime['id'] | string }) => {
     if (!isUuid(id)) {
       return null
     }
@@ -46,7 +46,7 @@ export const AnimeModelo = {
     animes.splice(indiceAnime, 1)
     return indiceAnime
   },
-  async actualizarAnime ({ id, ...input }: { id: Anime['id'] | string, [key: string]: any }) {
+  actualizarAnime: async ({ id, ...input }: { id: Anime['id'] | string, [key: string]: any }) => {
     if (!isUuid(id)) {
       return null
     }
@@ -55,7 +55,7 @@ export const AnimeModelo = {
       return undefined
     }
     const actualizarAnime = {
-      ...animes[indiceAnime],
+      ...validarAnimes[indiceAnime],
       ...input
     }
 

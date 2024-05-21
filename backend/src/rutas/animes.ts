@@ -1,14 +1,21 @@
 import { Router } from 'express'
 import { AnimesControlador } from '../controladores/animes'
+import { AnimeModeloInter } from '../tipos/typos'
 
-export const routerAnimes = Router()
+export function crearAnimesRouter ({ animeModelo }: { animeModelo: AnimeModeloInter }): Router {
+  const routerAnimes = Router()
 
-routerAnimes.get('/', AnimesControlador.getAll)
+  const animesRouter = new AnimesControlador({ animeModelo })
 
-routerAnimes.get('/:id', AnimesControlador.getPorId)
+  routerAnimes.get('/', animesRouter.getAll)
 
-routerAnimes.post('/', AnimesControlador.crearAnime)
+  routerAnimes.get('/:id', animesRouter.getPorId)
 
-routerAnimes.patch('/:id', AnimesControlador.actualizarAnime)
+  routerAnimes.post('/', animesRouter.crearAnime)
 
-routerAnimes.delete('/:id', AnimesControlador.eliminarAnime)
+  routerAnimes.patch('/:id', animesRouter.actualizarAnime)
+
+  routerAnimes.delete('/:id', animesRouter.eliminarAnime)
+
+  return routerAnimes
+}

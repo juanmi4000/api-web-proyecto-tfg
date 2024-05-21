@@ -1,3 +1,5 @@
+import { ParsedQs } from 'qs'
+
 //! Tipos de Animes
 
 export interface AnimePost {
@@ -53,4 +55,25 @@ export interface UsuarioPost {
 
 export interface Usuario extends UsuarioPost {
   id: `${string}-${string}-${string}-${string}-${string}`
+}
+
+//! Interfaces para los modelos
+export interface AnimeModeloInter {
+  getAll: (params: { genero: string | string[] | ParsedQs | ParsedQs[] | undefined }) => Promise<Anime[] | null>
+  getPorId: (params: { id: Anime['id'] | string }) => Promise<Anime | null | undefined>
+  crearAnime: (input: AnimePost) => Promise<Anime>
+  eliminarAnime: (params: { id: Anime['id'] | string }) => Promise<number | undefined | null>
+  actualizarAnime: (params: { id: Anime['id'] | string, [key: string]: any }) => Promise<Anime | Partial<Anime> | undefined | null>
+}
+
+export interface CategoriasModeloInter {
+  getAll: () => Promise<Categoria[]>
+}
+
+export interface UsuarioModeloInter {
+  getAll: () => Promise<Usuario[]>
+  getPorId: (params: { id: Usuario['id'] | string }) => Promise<Usuario | null | undefined>
+  crearUsuario: (input: UsuarioPost) => Promise<Usuario>
+  eliminarUsuario: (params: { id: Usuario['id'] | string }) => Promise<number | undefined | null>
+  actualizarUsuario: (params: { id: Usuario['id'] | string, [key: string]: any }) => Promise<Anime | Partial<Anime> | undefined | null>
 }

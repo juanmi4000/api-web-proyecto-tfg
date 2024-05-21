@@ -1,5 +1,5 @@
-import { Usuario, UsuarioPost } from '../tipos/typos'
-import usuarios from '../json/usuarios.json'
+import { Usuario, UsuarioPost } from '../../tipos/typos'
+import usuarios from '../../json/usuarios.json'
 import { randomUUID } from 'node:crypto'
 import { validate as isUuid } from 'uuid'
 
@@ -47,7 +47,7 @@ export const UsuarioModelo = {
     }
 
     const usuarioActualizado = {
-      ...usuarios[indiceUsuario],
+      ...validarUsuarios[indiceUsuario],
       ...input
     }
 

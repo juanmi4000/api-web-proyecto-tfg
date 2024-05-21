@@ -4,22 +4,22 @@
 ### ✅ => indica éxito
 
 ### Conseguir todos los animes
-GET http://localhost:3000/animes
+GET http://localhost:4000/animes
 
 ### Conseguir un anime ❌
-GET http://localhost:3000/animes/1
+GET http://localhost:4000/animes/1
 
 ### Conseguir un anime ✅
-GET http://localhost:3000/animes/f60d4bb1-e802-40f6-9f95-0e0aef6516c2
+GET http://localhost:4000/animes/f60d4bb1-e802-40f6-9f95-0e0aef6516c2
 
 ### Filtrar animes por categoría ❌
-GET http://localhost:3000/animes?categoria=mech
+GET http://localhost:4000/animes?categoria=mech
 
 ### Filtrar animes por categoría ✅
-GET http://localhost:3000/animes?categoria=MECHA
+GET http://localhost:4000/animes?categoria=MECHA
 
 ### Crear un anime ❌
-POST http://localhost:3000/animes
+POST http://localhost:4000/animes
 Content-Type: application/json
 
 {
@@ -39,7 +39,7 @@ Content-Type: application/json
 }
 
 ### Crear un anime ✅
-POST http://localhost:3000/animes
+POST http://localhost:4000/animes
 Content-Type: application/json
 
 {
@@ -60,7 +60,7 @@ Content-Type: application/json
 }
 
 ### Actualizar un anime ❌ 
-PATCH http://localhost:3000/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28
+PATCH http://localhost:4000/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28
 Content-Type: application/json
 
 {
@@ -69,7 +69,7 @@ Content-Type: application/json
 }
 
 ### Actualizar un anime ✅ y el id no puede ser modificado porque el id no está en las validaciones
-PATCH http://localhost:3000/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28
+PATCH http://localhost:4000/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28
 Content-Type: application/json
 
 {
@@ -79,5 +79,5 @@ Content-Type: application/json
 }
 
 ### Eliminar un anime 
-DELETE http://localhost:3000/animes/f60d4bb1-e802-40f6-9f95-0e0aef6516c2
+DELETE http://localhost:4000/animes/f60d4bb1-e802-40f6-9f95-0e0aef6516c2
 

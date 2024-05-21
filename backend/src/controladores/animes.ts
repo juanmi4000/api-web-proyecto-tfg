@@ -1,14 +1,19 @@
-import { AnimeModelo } from '../modelos/anime'
 import { Request, Response } from 'express'
 import { asyncHandler } from '../middlewares/manejadorAsync'
 import { validarAnime, validarAnimeParcial } from '../esquemas/animes'
 import { ZodError } from 'zod'
+import { AnimeModeloInter } from '../tipos/typos'
 
-export const AnimesControlador = {
-  getAll: asyncHandler(async (req: Request, res: Response) => {
+export class AnimesControlador {
+  private readonly animeModelo: AnimeModeloInter
+  constructor ({ animeModelo }: { animeModelo: AnimeModeloInter }) {
+    this.animeModelo = animeModelo
+  }
+
+  getAll = asyncHandler(async (req: Request, res: Response) => {
     try {
       const { categoria } = req.query
-      const animes = await AnimeModelo.getAll({ genero: categoria as string })
+      const animes = await this.animeModelo.getAll({ genero: categoria as string })
       if (animes == null || animes.length === 0) {
         return res.status(404).json({ message: 'No se ha podido filtrar. Comprueba la categoría.' })
       }
@@ -17,11 +22,12 @@ export const AnimesControlador = {
       console.error('Error en la promesa: ', error)
       return res.status(500).json({ message: 'Error interno del servidor.' })
     }
-  }),
-  getPorId: asyncHandler(async (req: Request, res: Response) => {
+  })
+
+  getPorId = asyncHandler(async (req: Request, res: Response) => {
     try {
       const { id } = req.params
-      const anime = await AnimeModelo.getPorId({ id })
+      const anime = await this.animeModelo.getPorId({ id })
       if (anime === null) {
         return res.status(400).json({ message: 'La id no sigue el patrón correcto' })
       }
@@ -33,25 +39,27 @@ export const AnimesControlador = {
       console.error('Error en la promesa: ', error)
       return res.status(500).json({ message: 'Error interno del servidor.' })
     }
-  }),
-  crearAnime: asyncHandler(async (req: Request, res: Response) => {
+  })
+
+  crearAnime = asyncHandler(async (req: Request, res: Response) => {
     try {
       const resultado = validarAnime(req.body)
 
       if (resultado instanceof ZodError) {
         return res.status(400).json({ error: JSON.parse(resultado.message) })
       }
-      const animeNuevo = await AnimeModelo.crearAnime(resultado)
+      const animeNuevo = await this.animeModelo.crearAnime(resultado)
       return res.status(201).json(animeNuevo)
     } catch (error) {
       console.error('Error en la promesa: ', error)
       return res.status(500).json({ message: 'Error interno del servidor.' })
     }
-  }),
-  eliminarAnime: asyncHandler(async (req: Request, res: Response) => {
+  })
+
+  eliminarAnime = asyncHandler(async (req: Request, res: Response) => {
     try {
       const { id } = req.params
-      const animeEncontrado = await AnimeModelo.eliminarAnime({ id })
+      const animeEncontrado = await this.animeModelo.eliminarAnime({ id })
       if (animeEncontrado == null) {
         return res.status(400).json({ message: 'La id no sigue el patrón correcto' })
       }
@@ -64,8 +72,9 @@ export const AnimesControlador = {
       console.error('Error en la promesa: ', error)
       return res.status(500).json({ message: 'Error interno del servidor.' })
     }
-  }),
-  actualizarAnime: asyncHandler(async (req: Request, res: Response) => {
+  })
+
+  actualizarAnime = asyncHandler(async (req: Request, res: Response) => {
     try {
       const resultado = validarAnimeParcial(req.body)
 
@@ -75,7 +84,7 @@ export const AnimesControlador = {
 
       const { id } = req.params
 
-      const animeActualizado = await AnimeModelo.actualizarAnime({ id, ...resultado })
+      const animeActualizado = await this.animeModelo.actualizarAnime({ id, ...resultado })
       if (animeActualizado == null) {
         return res.status(400).json({ message: 'La id no sigue el patrón correcto' })
       }
