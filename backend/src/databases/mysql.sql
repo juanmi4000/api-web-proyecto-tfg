@@ -47,3 +47,20 @@ create table usuario (
     img_mediana text not null,
     img_miniatura text not null
 );
+
+-- solución Cristina
+SELECT * FROM anime, animes_generos, (SELECT id, nombre FROM genero WHERE nombre = 'Drama') AS g 
+WHERE anime.id = animes_generos.anime_id AND animes_generos.genero_id = g.id;
+
+-- optimizado JuanMa
+SELECT a.id, estudio, descripcion, fecha_inicio, titulo_enlace, titulo_texto, g.id as id_generos, g.nombre FROM anime as a, animes_generos as ag, (SELECT id, nombre FROM genero WHERE nombre = 'Drama') AS g 
+WHERE a.id = ag.anime_id AND ag.genero_id = g.id;
+
+-- consulta para saber los diferentes animes que tienen un género
+SELECT a.id, a.descripcion, a.estudio, a.estudio, a.fecha_inicio, a.titulo_texto FROM anime AS a INNER JOIN animes_generos as ag ON a.id = ag.anime_id INNER JOIN genero as g ON ag.genero_id = g.id WHERE LOWER(g.nombre) = LOWER(?);
+
+-- consulta para saber los diferentes generos que tienen un anime
+SELECT nombre FROM anime as a INNER JOIN animes_generos as ag on anime_id = a.id INNER JOIN genero as g ON genero_id = g.id WHERE a.id = ?;
+
+
+
