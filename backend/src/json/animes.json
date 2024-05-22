@@ -1,7 +1,7 @@
 [
   {
     "estudio": "Wit estudio",
-    "generos": [],
+    "generos": [	"Acción", "Drama", "Fantasía", "Terror", "Thriller"],
     "id": "59b57db3-122c-4c47-9201-7e8ca06e3d28",
     "descripcion": "A medida que el mundo está en medio de una revolución industrial, aparece un monstruo que no puede ser derrotado a menos que su corazón, protegido por una capa de hierro, sea perforado. Al infectar a los humanos con su mordedura, el monstruo puede crear criaturas agresivas y no muertas conocidas como Kabane. En la isla Hinomoto, ubicada en el extremo oriente, las personas han construido estaciones para protegerse de estas criaturas. Las personas acceden a la estación, así como transportan mercancías entre ellas, con la ayuda de una locomotora que funciona con vapor, llamada Hayajiro. Ikoma, un chico que vive en la estación Aragane y ayuda a construir Hayajiro, crea su propia arma llamada Tsuranukizutsu para derrotar a las criaturas. Un día, mientras espera una oportunidad para usar su arma, conoce a una chica llamada Mumei, quien está exenta de la inspección obligatoria de Kabane. Durante la noche, Ikuma se encuentra nuevamente con Mumei cuando ve que Hayajiro está fuera de control. El personal de la locomotora se ha convertido en las criaturas. La estación, ahora bajo ataque de Kabane, es la oportunidad que Ikoma ha estado buscando. (Fuente: MAL News)",
     "titulo": {
@@ -430,7 +430,7 @@
   },
   {
     "estudio": "AXsiZ",
-    "generos": [],
+    "generos": ["Seinen", "Juegos"],
     "id": "1b499d8b-d1b3-4da4-9d33-515241aceae9",
     "descripcion": "Even though he's just a student, the protagonist in Wagamama High Spec also happens to be the author of a manga published in a weekly magazine. Since it's mainly an ecchi and romcom type of story, he is actually hiding this fact from most people around him. The only people that know are his younger sister and his best friend. But then on one day, the student council president happens to find out his secret, just as she was actually looking for a male member to include in the student council. Afraid of having his secret exposed, our protagonist joins the student council under the promise of his secret staying safe. (Source: Otaku Lair, edited)",
     "titulo": {
@@ -744,6 +744,7 @@
       "Shounen"
     ],
     "id": "22762176-5fb5-4a88-ac51-12acff7d6fdb",
+    "estudio": "TMS Entertainment",
     "descripcion": "Third season of Cardfight!! Vanguard G series.",
     "titulo": {
       "enlace": "http://myanimelist.net/anime/32802/Cardfight_Vanguard_G__Stride_Gate-hen",
@@ -772,6 +773,7 @@
       "Comedia",
       "Shounen"
     ],
+    "estudio": "Ascension",
     "id": "f4423b9b-f1ff-4f58-a41b-365eef9f2dab",
     "descripcion": "The new series will feature talking hamsters, as well as \"amazing transfer students\" who appear one after another. The video also confirms that Katta Kirifuda, the younger brother of the previous franchise lead Shoubu Kirifuda, will continue to star in the series. (Source: ANN)",
     "titulo": {
