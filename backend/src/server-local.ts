@@ -6,6 +6,6 @@ import { config } from 'dotenv'
 
 config()
 
-const PUERTO = Number(process.env.SERVER_LOCAL) ?? 8000 as number
+const PUERTO = Number(process.env.SERVER_LOCAL) ?? 8000
 
 crearApi({ animeModelo: AnimeModelo, categoriaModelo: CategoriaModelo, usuarioModelo: UsuarioModelo, PUERTO })

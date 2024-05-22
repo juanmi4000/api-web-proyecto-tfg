@@ -4,7 +4,7 @@ import { CategoriasModeloInter } from '../tipos/tipos'
 
 export class CategoriasControlador {
   private readonly categoriaModelo: CategoriasModeloInter
-  constructor({ categoriaModelo }: { categoriaModelo: CategoriasModeloInter }) {
+  constructor ({ categoriaModelo }: { categoriaModelo: CategoriasModeloInter }) {
     this.categoriaModelo = categoriaModelo
   }
 
