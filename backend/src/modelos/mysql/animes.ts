@@ -1,4 +1,4 @@
-import { Anime, AnimePost } from '../../tipos/typos'
+import { Anime, AnimePost } from '../../tipos/tipos'
 import { ParsedQs } from 'qs'
 import mysql from 'mysql2/promise'
 // import { randomUUID } from 'node:crypto'

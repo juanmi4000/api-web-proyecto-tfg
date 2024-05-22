@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { AnimesControlador } from '../controladores/animes'
-import { AnimeModeloInter } from '../tipos/typos'
+import { AnimeModeloInter } from '../tipos/tipos'
 
 export function crearAnimesRouter ({ animeModelo }: { animeModelo: AnimeModeloInter }): Router {
   const routerAnimes = Router()

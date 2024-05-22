@@ -1,5 +1,5 @@
 import zod, { ZodError } from 'zod'
-import { UsuarioPost } from '../tipos/typos'
+import { UsuarioPost } from '../tipos/tipos'
 
 const esquemaUsuario = zod.object({
   nombre: zod.object({

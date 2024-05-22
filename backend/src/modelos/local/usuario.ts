@@ -1,4 +1,4 @@
-import { Usuario, UsuarioPost } from '../../tipos/typos'
+import { Usuario, UsuarioPost } from '../../tipos/tipos'
 import usuarios from '../../json/usuarios.json'
 import { randomUUID } from 'node:crypto'
 import { validate as isUuid } from 'uuid'

@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { asyncHandler } from '../middlewares/manejadorAsync'
 import { validarAnime, validarAnimeParcial } from '../esquemas/animes'
 import { ZodError } from 'zod'
-import { AnimeModeloInter } from '../tipos/typos'
+import { AnimeModeloInter } from '../tipos/tipos'
 
 export class AnimesControlador {
   private readonly animeModelo: AnimeModeloInter

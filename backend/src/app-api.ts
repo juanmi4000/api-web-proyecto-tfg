@@ -3,7 +3,7 @@ import { crearAnimesRouter } from './rutas/animes'
 import { corsMiddleware } from './middlewares/cors'
 import { crearCategoriasRouter } from './rutas/categorias'
 import { crearUsuariosRouter } from './rutas/usuarios'
-import { AnimeModeloInter, CategoriasModeloInter, UsuarioModeloInter } from './tipos/typos'
+import { AnimeModeloInter, CategoriasModeloInter, UsuarioModeloInter } from './tipos/tipos'
 
 export function crearApi ({ animeModelo, categoriaModelo, usuarioModelo, PUERTO }: { animeModelo: AnimeModeloInter, categoriaModelo: CategoriasModeloInter, usuarioModelo: UsuarioModeloInter, PUERTO: number }): void {
   const app = express()

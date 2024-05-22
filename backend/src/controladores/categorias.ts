@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { asyncHandler } from '../middlewares/manejadorAsync'
-import { CategoriasModeloInter } from '../tipos/typos'
+import { CategoriasModeloInter } from '../tipos/tipos'
 
 export class CategoriasControlador {
   private readonly categoriaModelo: CategoriasModeloInter

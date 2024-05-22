@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { asyncHandler } from '../middlewares/manejadorAsync'
 import { validarUsuario, validarUsuarioParcial } from '../esquemas/usuarios'
 import { ZodError } from 'zod'
-import { UsuarioModeloInter } from '../tipos/typos'
+import { UsuarioModeloInter } from '../tipos/tipos'
 
 export class UsuariosControlador {
   private readonly usuarioModelo: UsuarioModeloInter

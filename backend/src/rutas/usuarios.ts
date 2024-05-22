@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { UsuariosControlador } from '../controladores/usuarios'
-import { UsuarioModeloInter } from '../tipos/typos'
+import { UsuarioModeloInter } from '../tipos/tipos'
 
 export function crearUsuariosRouter ({ usuarioModelo }: { usuarioModelo: UsuarioModeloInter }): Router {
   const routerUsuarios = Router()
