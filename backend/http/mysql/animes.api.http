@@ -7,7 +7,7 @@
 GET http://localhost:4002/animes
 
 ### Conseguir un anime ❌
-GET http://localhost:4002/animes/1
+GET http://localhost:4002/animes/f60d4bc1-e802-40f6-9f95-0e0aef6516c2
 
 ### Conseguir un anime ✅
 GET http://localhost:4002/animes/f60d4bb1-e802-40f6-9f95-0e0aef6516c2

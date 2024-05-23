@@ -7,7 +7,7 @@
 GET http://localhost:4000/usuarios
 
 ### Conseguir un usuario ❌
-GET http://localhost:4000/usuarios/bad7ab23-88c6-4e3a-8209-25e4e900fc56
+GET http://localhost:4000/usuarios/bad7ac23-85c6-4e3a-8209-25e4e900fc56
 
 ### Conseguir un usuario ✅
 GET http://localhost:4000/usuarios/bad7ac23-88c6-4e3a-8209-25e4e900fc56

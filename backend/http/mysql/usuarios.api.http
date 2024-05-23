@@ -7,7 +7,7 @@
 GET http://localhost:4002/usuarios
 
 ### Conseguir un usuario ❌
-GET http://localhost:4002/usuarios/bad7ab23-88c6-4e3a-8209-25e4e900fc56
+GET http://localhost:4002/usuarios/ba7ab234-88c6-4e3a-8209-25e4e900fc56
 
 ### Conseguir un usuario ✅
 GET http://localhost:4002/usuarios/bad7ac23-88c6-4e3a-8209-25e4e900fc56
@@ -82,7 +82,7 @@ Content-Type: application/json
 }
 
 ### Eliminar un usuario ❌ (comprobar si no funciona con la id incorrecta)
-DELETE http://localhost:4002/usuarios/7ac23-88c6-4e3a-8209-25e4e900fc56
+DELETE http://localhost:4002/usuarios/bad7ac23-88c6-5e3a-8209-25e4e900fc56
 
 ### Eliminar un usuario ✅
 DELETE http://localhost:4002/usuarios/bad7ac23-88c6-4e3a-8209-25e4e900fc56
