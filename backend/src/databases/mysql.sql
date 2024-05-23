@@ -60,7 +60,7 @@ WHERE a.id = ag.anime_id AND ag.genero_id = g.id;
 SELECT a.id, a.descripcion, a.estudio, a.estudio, a.fecha_inicio, a.titulo_texto FROM anime AS a INNER JOIN animes_generos as ag ON a.id = ag.anime_id INNER JOIN genero as g ON ag.genero_id = g.id WHERE LOWER(g.nombre) = LOWER(?);
 
 -- consulta para saber los diferentes generos que tienen un anime
-SELECT nombre FROM anime as a INNER JOIN animes_generos as ag on anime_id = a.id INNER JOIN genero as g ON genero_id = g.id WHERE a.id = ?;
+SELECT nombre FROM anime as a INNER JOIN animes_generos as ag on anime_id = a.id INNER JOIN genero as g ON genero_id = g.id WHERE a.id = '01a80f3a-138d-4774-a30f-6b5229858587'
 
 
 
