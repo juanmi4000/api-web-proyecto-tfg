@@ -13,9 +13,9 @@ export async function conexionMySQL (): Promise<mysql.Connection> {
   return conexion
 }
 
-export function formatearFecha (fecha: Date): String {
+export function formatearFecha (fecha: Date): string {
   const conseguirMes: number = fecha.getMonth()
-  const anio: string = String(fecha.getFullYear())
+  const anio = String(fecha.getFullYear())
   const mes = String(conseguirMes + 1).padStart(2, '0')
   const dia = String(fecha.getDate()).padStart(2, '0')
   return `${dia}/${mes}/${anio}`

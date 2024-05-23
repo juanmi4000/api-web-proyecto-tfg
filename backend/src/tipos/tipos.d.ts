@@ -105,11 +105,11 @@ export interface AnimeModeloInter {
 }
 
 export interface CategoriasModeloInter {
-  getAll: () => Promise<Categoria[] | CategoriaMysql[]>
+  getAll: () => Promise<Categoria[] | CategoriaMysql[] | undefined>
 }
 
 export interface UsuarioModeloInter {
-  getAll: () => Promise<Usuario[]>
+  getAll: () => Promise<Usuario[] | null>
   getPorId: (params: { id: Usuario['id'] | string }) => Promise<Usuario | UsuarioMysql | null | undefined>
   crearUsuario: (input: UsuarioPost) => Promise<Usuario>
   eliminarUsuario: (params: { id: Usuario['id'] | string }) => Promise<number | undefined | null>
