@@ -35,16 +35,16 @@ export const AnimeModelo = {
       const animes: unknown = await bd.find({
         generos: {
           $elemMatch: {
-            $regex: genero,
+            $regex: `^${genero}$`,
             $options: 'i'
           }
         }
-      }).toArray()
+      }, { projection: { _id: 0 } }).toArray()
 
       return animes !== undefined ? animes as Anime[] : null
     }
 
-    const animes: unknown = await bd.find({}).toArray()
+    const animes: unknown = await bd.find({}, { projection: { _id: 0 } }).toArray()
 
     return animes !== undefined ? animes as Anime[] : null
   },
@@ -56,9 +56,9 @@ export const AnimeModelo = {
     if (bd === undefined) return null
     const animes: unknown = await bd.find({
       id: idPasado
-    }).toArray()
+    }, { projection: { _id: 0 } }).toArray()
 
-    return animes !== undefined ? animes as Anime : null
+    return (animes as Anime[]).length !== 0 ? (animes as Anime[])[0] : undefined
   },
 
   crearAnime: async (input: AnimePost) => {
@@ -79,7 +79,7 @@ export const AnimeModelo = {
     // const { deletedCount } = await bd?.deleteOne({ _id: objeto })
     const anime = await bd.find({
       id: idPasado
-    }).toArray()
+    }, { projection: { _id: 0 } }).toArray()
     return anime !== undefined ? 1 : undefined // cambiar uno
   },
   actualizarAnime: async ({ id: idPasado, ...input }: { id: Anime['id'] | string, [key: string]: any }) => {
@@ -94,14 +94,14 @@ export const AnimeModelo = {
 
     const anime: unknown = await bd.find({
       id: idPasado
-    }).toArray()
+    }, { projection: { _id: 0 } }).toArray()
 
-    if (anime === undefined) return undefined
+    if ((anime as Anime[]).length === 0) return undefined
 
-    const animeActualizado = anime as Anime
+    const animeActualizado = anime as Anime[]
 
     return {
-      ...animeActualizado,
+      ...animeActualizado[0],
       ...input
     }
   }

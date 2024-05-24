@@ -28,7 +28,7 @@ export const CategoriaModelo = {
   getAll: async () => {
     const bd = await conectar()
     if (bd === undefined) return undefined
-    const categorias: unknown = await bd?.find({}).toArray()
+    const categorias: unknown = await bd.find({}, { projection: { _id: 0 } }).toArray()
     return categorias as Categoria[]
   }
 }

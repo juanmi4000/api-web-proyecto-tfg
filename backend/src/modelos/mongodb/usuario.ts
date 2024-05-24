@@ -30,7 +30,7 @@ export const UsuarioModelo = {
   getAll: async () => {
     const bd = await conectar()
     if (bd === undefined) return null
-    const usuarios: unknown = await bd.find({}).toArray()
+    const usuarios: unknown = await bd.find({}, { projection: { _id: 0 } }).toArray()
     return usuarios as Usuario[]
   },
   getPorId: async ({ id: idPasado }: { id: Usuario['id'] | string }) => {
@@ -41,11 +41,11 @@ export const UsuarioModelo = {
     const bd = await conectar()
     if (bd === undefined) return null
 
-    const usuario: unknown = await bd?.find({
+    const usuario: unknown = await bd.find({
       id: idPasado
-    }).toArray()
-
-    return usuario !== undefined ? usuario as Usuario : undefined
+    }, { projection: { _id: 0 } }).toArray()
+    console.log(usuario)
+    return (usuario as Usuario[]).length !== 0 ? (usuario as Usuario[])[0] : undefined
   },
   crearUsuario: async (input: UsuarioPost) => {
     return {
@@ -63,7 +63,7 @@ export const UsuarioModelo = {
 
     const usuario = await bd.find({
       id: idPasado
-    }).toArray()
+    }, { projection: { _id: 0 } }).toArray()
 
     return usuario !== undefined ? 1 : undefined
   },
@@ -74,14 +74,14 @@ export const UsuarioModelo = {
     const bd = await conectar()
     if (bd === undefined) return null
 
-    const usuario: unknown = await bd?.find({ id: idPasado }).toArray()
+    const usuario: unknown = await bd.find({ id: idPasado }, { projection: { _id: 0 } }).toArray()
 
     if (usuario === undefined) return undefined
 
-    const usuarioActualizado = usuario as Usuario
+    const usuarioActualizado = usuario as Usuario[]
 
     return {
-      ...usuarioActualizado,
+      ...usuarioActualizado[0],
       ...input
 
     }
