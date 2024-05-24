@@ -27,7 +27,13 @@
     "express",
     "astro",
     "javascript",
-    "api"
+    "api",
+    "RESTful",
+    "zod",
+    "sql",
+    "MySQL",
+    "noSQL",
+    "MongoDB"
   ],
   "author": "Juan Manuel García Moyano",
   "license": "ISC",
