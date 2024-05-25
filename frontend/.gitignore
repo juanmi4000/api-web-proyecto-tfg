@@ -1,5 +1,5 @@
 # build output
-dist/
+produccion/
 
 # generated types
 .astro/
@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# mis carpetas
+copia
