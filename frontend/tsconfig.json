@@ -5,7 +5,8 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "@comp/*" : ["src/components/*"] // componentes
+      "@comp/*": ["src/components/*"], // componentes
+      "@/*": ["src/*"]
     }
   }
 }
