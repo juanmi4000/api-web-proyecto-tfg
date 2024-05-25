@@ -33,7 +33,9 @@
     "sql",
     "MySQL",
     "noSQL",
-    "MongoDB"
+    "MongoDB",
+    "tailwind",
+    "react"
   ],
   "author": "Juan Manuel García Moyano",
   "license": "ISC",
