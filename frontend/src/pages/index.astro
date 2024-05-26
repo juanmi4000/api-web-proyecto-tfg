@@ -1,21 +1,84 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import imgPrincipal from "../multimedia/imagenes/img-principal-500px.webp";
+import GitHubSecundario from "@/multimedia/svg/GitHubSecundario.astro";
+import FlechaDerecha from "@/multimedia/svg/FlechaDerecha.astro";
 ---
 
 <Layout title="Bienvenido a la api">
-	<main>
-		<h1>Hola</h1>
-	</main>
-		
+  <main>
+    <section class="flex flex-col gap-10 text-center my-10 lg:flex-row">
+      <article class="mx-auto">
+        <Image
+          src={imgPrincipal}
+          alt="Imagen de los tres Animes principales, Naruto Dragon Ball y One Piece."
+        />
+      </article>
+      <article class="mt-5 mb-8">
+        <h1 class="font-fugaz text-4xl mb-5">Anime API</h1>
+        <p class="mb-6">
+          API de animes para tus prácticas y crear tus propios proyectos.
+        </p>
+        <a
+          class="btn relative mb-7 [&:hover>:last-child]:animate-flip-in-x [&:hover>:last-child]:animate-duration-300 [&:hover>span]:text-[#D5DBDB] bg-[rgb(var(--color-btn-border))] text-black px-3 py-1.5 rounded-md w-2/3 flex justify-between items-center mx-auto md:w-1/2"
+          href="https://github.com/juanmi4000/api-web-proyecto-tfg"
+          target="_blank"
+        >
+          <span class="z-10 transition-colors">Ver en GitHub</span>
+          <GitHubSecundario class="w-5 inline-block z-10" />
+        </a>
+
+        <a
+          class="btn relative [&:hover>:last-child]:animate-swing [&:hover>:last-child]:animate-duration-200 [&:hover>span]:text-[#D5DBDB] bg-[rgb(var(--color-btn-border))] text-black px-3 py-1.5 rounded-md w-2/3 flex justify-between items-center mx-auto md:w-1/2"
+          href="/documentacion"
+          target="_blank"
+        >
+				<span class="z-10 transition-colors">Ver documentación</span>
+          <FlechaDerecha class="w-5 inline-block z-10" />
+        </a>
+      </article>
+    </section>
+    <section class="my-20">
+			<h2 class="font-fugaz text-3xl text-center mb-5">API gratuita para los amantes del anime</h2>
+			<p class="mb-5">¿Estás cansado de siempre las típicas APIs e-commerce? ¿Te gusta el anime?</p>
+			<p class="mb-5">Anime API es una API gratuita, que te proporciona datos pseudoreales para practicar con una REST API. Te proporcionamos diferentes métodos de utilización, ya sea, obtener todos los animes como filtrarlos por categoría.</p>
+		</section>
+    <section class="flex flex-col gap-7 my-20">
+			<h2 class="font-fugaz text-3xl">Recursos</h2>
+			<p class="flex justify-between"><span>Animes</span><span>63</span></p>
+			<p class="flex justify-between"><span>Categorías</span><span>33</span></p>
+			<p class="flex justify-between"><span>Usuarios</span><span>20</span></p>
+		</section>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		font-size: 20px;
-		line-height: 1.6;
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    font-size: 20px;
+    line-height: 1.6;
+  }
+	.btn::after{
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 0.375rem;
+		background-color: #91918F;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform .2s ease-in;
+	}
+	.btn:hover:after{
+		transform: scaleX(1);
+		> span {
+			transition: color 1s ease;
+		}
 	}
 </style>
