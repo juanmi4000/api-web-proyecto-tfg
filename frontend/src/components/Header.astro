@@ -1,6 +1,40 @@
 ---
-
+import Server from "@/multimedia/svg/Server.astro";
+import Enlaces from "./enlaces/Enlaces.astro";
 ---
-<header>
-  
+
+<header class="max-h-screen w-full bg-[rgb(var(--color-header))]">
+  <nav class="flex items-center justify-between px-5 sm:px-10 lg:px-14">
+    <article class="flex h-14 p-1">
+      <a class="w-full h-full cursor-pointer" href="/"><Server class="w-full h-full cursor-pointer" /></a>
+    </article>
+    <article class="hidden sm:flex sm:flex-grow sm:justify-center">
+      <ul class="flex gap-4">
+        <li><Enlaces href="/" texto="Inicio" activo/></li>
+        <li><Enlaces href="/documentacion" texto="Documentación" /></li>
+        <li><Enlaces href="/explorador" texto="Explorador de la API" /></li>
+      </ul>
+    </article>
+    <article class="sm:hidden">
+      <button aria-label="Mostrar menú">
+        <!-- Ver si hay que cambiar aria-label cuando lo muestre -->
+        <span class="block bg-white h-0.5 w-6 mb-1"></span>
+        <span class="block bg-white h-0.5 w-6 mb-1"></span>
+        <span class="block bg-white h-0.5 w-6"></span>
+      </button>
+    </article>
+  </nav>
 </header>
+
+<script>
+  //let scrollGuardado = 0
+  let scrollY = window.scrollY
+  console.log(scrollY);
+  /* if (scrollY > ) {
+    
+  }
+
+  window.innerHeight + window.scrollY */
+  
+</script>
+

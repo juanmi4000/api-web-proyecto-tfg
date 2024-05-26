@@ -1,6 +1,19 @@
 ---
+import Server from "@/multimedia/svg/Server.astro";
+import GitHub from "@/multimedia/svg/GitHub.astro";
+import LinkedIn from "@/multimedia/svg/LinkedIn.astro";
 
 ---
-<footer>
-  
+<footer class="w-full max-h-screen bg-[rgb(var(--color-header))] py-8 flex flex-col justify-end">
+  <section class="flex flex-col justify-center items-center px-6 py-2 gap-4">
+    <Server class="w-20"/>
+    <p class="text-center sm:text-left">API ideal para tus proyectos y los amantes de los animes. Te proporcionamos animes, usuarios y diferentes categorías.</p>
+  </section>
+  <hr class="hidden h-[1px] sm:block sm:my-7">
+  <section class="h-min flex flex-col sm:flex-row justify-center items-center px-3 my-auto gap-4">
+    <h2 class="text-3xl font-fugaz">Desarrollado por :</h2>
+    <p>Juan Manuel <span class="hidden sm:inline-block sm:pl-4"> - </span></p>
+    <a class="hover:scale-110" href="https://github.com/juanmi4000/api-web-proyecto-tfg" target="_blank"><GitHub class="w-10 sm:w-11"/></a>
+    <a class="hover:scale-110" href="https://www.linkedin.com/in/juan-manuel-garc%C3%ADa-moyano-4ba438306" target="_blank"><LinkedIn class="w-10 sm:w-11"/></a>
+  </section>
 </footer>
