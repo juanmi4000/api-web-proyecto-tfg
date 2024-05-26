@@ -1,0 +1,51 @@
+---
+interface Props {
+  href: string;
+  texto: string;
+  activo?: boolean;
+}
+
+const { href, texto, activo } = Astro.props;
+---
+
+<a
+  class:list={[
+    "w-px-2 py-[1px] pb-1",
+    { "border-b-[1px] border-b-[rgb(var(--color-btn-border))]": activo,
+      "relative": !activo
+     },
+  ]}
+  href={href}>{texto}</a
+>
+
+<style>
+  a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px; 
+    background-color: rgb(var(--color-btn-border));
+    bottom: -1px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  a:hover::after {
+    transform: scaleX(1);
+  }
+</style>
+
+<!-- const $copyNpmInstall = document.getElementById(
+    'copyNpmInstall'
+  ) as HTMLButtonElement
+
+  $copyNpmInstall.addEventListener('click', () => {
+    const npmCommand = 'npm install @midudev/tailwind-animations'
+    navigator.clipboard.writeText(npmCommand)
+    toast('Copied to clipboard!', {
+      theme: {
+        type: 'light'
+      }
+    })
+  }) -->
