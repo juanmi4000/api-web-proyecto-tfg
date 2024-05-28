@@ -1,40 +1,95 @@
 ---
 import Server from "@/multimedia/svg/Server.astro";
 import Enlaces from "@comp/enlaces/Enlaces.astro";
+
+const { pathname } = Astro.url;
+const nombreRuta =
+  pathname.length > 1 && pathname.endsWith("/")
+    ? pathname.slice(0, -1)
+    : pathname;
+
+const enlaces = [
+  { href: "/", texto: "Inicio"},
+  { href: "/documentacion", texto: "Documentación" },
+  { href: "/explorador", texto: "Explorador de la API" },
+].map((enlace) => ({
+  ...enlace,
+  activo: nombreRuta === enlace.href
+}));
 ---
 
 <header class="max-h-screen w-full bg-[rgb(var(--color-header))]">
   <nav class="flex items-center justify-between px-5 sm:px-10 lg:px-14">
     <article class="flex h-14 p-1">
-      <a class="w-full h-full cursor-pointer" href="/"><Server class="w-full h-full cursor-pointer" /></a>
+      <a class="w-full h-full cursor-pointer" href="/"
+        ><Server class="w-full h-full cursor-pointer" /></a
+      >
     </article>
     <article class="hidden sm:flex sm:flex-grow sm:justify-center">
       <ul class="flex gap-4">
-        <li><Enlaces href="/" texto="Inicio" activo/></li>
-        <li><Enlaces href="/documentacion" texto="Documentación" /></li>
-        <li><Enlaces href="/explorador" texto="Explorador de la API" /></li>
+        {
+          enlaces.map(({ href, texto, activo }) => (
+            <li>
+              <Enlaces href={href} texto={texto} {activo} />
+            </li>
+          ))
+        }
       </ul>
     </article>
-    <article class="sm:hidden">
-      <button aria-label="Mostrar menú">
+    <article class="z-10 sm:hidden">
+      <button onclick="" aria-label="Mostrar menú">
         <!-- Ver si hay que cambiar aria-label cuando lo muestre -->
-        <span class="block bg-white h-0.5 w-6 mb-1"></span>
-        <span class="block bg-white h-0.5 w-6 mb-1"></span>
-        <span class="block bg-white h-0.5 w-6"></span>
+        <span class="bg-white"></span>
+        <span class="bg-white"></span>
+        <span class="bg-white"></span>
       </button>
     </article>
   </nav>
 </header>
 
-<script>
-  //let scrollGuardado = 0
-  let scrollY = window.scrollY
-  console.log(scrollY);
-  /* if (scrollY > ) {
-    
+<style>
+  button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    background: transparent;
+    gap: 0.65rem;
+    z-index: 10;
+
+    > span {
+      height: 2px;
+      width: 75%;
+      border-radius: 5px;
+      transition: all 0.5s;
+      transform-origin: left;
+    }
+    &:hover span:first-child {
+      transform: rotate(45deg);
+    }
+    &:hover span:nth-child(2) {
+      opacity: 0;
+    }
+    &:hover span:last-child {
+      transform: rotate(-45deg);
+    }
   }
+</style>
 
-  window.innerHeight + window.scrollY */
+<!-- <script>
   
-</script>
-
+  let activados = document.querySelectorAll("enlaces-cabecera")
+  activados.forEach(activado => {
+    activado.addEventListener('click', (evento) => {
+      let enlace = evento.target as HTMLElement
+      if (enlace.id === 'enlace-cabecera-1') {
+        enlace.setAttribute("activado", "true")
+      } else if (enlace.id === 'enlace-cabecera-2') {
+        enlace.setAttribute("activado", "true")
+      }
+    })
+  })
+</script> -->
