@@ -1,0 +1,17 @@
+[
+  {
+    "titulo": "Titulo",
+    "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, eius ducimus nobis impedit libero velit debitis ipsa, est repellendus repellat praesentium dolore laboriosam alias. Vero, accusamus animi! Iusto, corrupti eius!",
+    "codigoReq": "<p>codigo aquí</p>",
+    "copiar": "<p>codigo aquí</p>",
+    "info": "texto",
+    "codigoRes": "respuesta"
+  },
+  {
+    "titulo": "Titulo",
+    "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, eius ducimus nobis impedit libero velit debitis ipsa, est repellendus repellat praesentium dolore laboriosam alias. Vero, accusamus animi! Iusto, corrupti eius!",
+    "codigoReq": "<p>codigo aquí</p>",
+    "copiar": "<p>codigo aquí</p>",
+    "codigoRes": "respuesta"
+  }
+]
