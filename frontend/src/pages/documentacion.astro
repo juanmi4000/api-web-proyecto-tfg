@@ -1,22 +1,111 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-
-
+import doc from "@/json/docs-info.json";
+import Copiar from "@/multimedia/svg/Copiar.astro";
+import Asterisco from "@/multimedia/svg/Asterisco.astro";
+import { MostrarOcultarInfo } from "@comp/BtnMostrar";
 ---
 
 <Layout title="Documentación de la API">
-  <main>
-		<h1>Hola 2</h1>
-	</main>
+  <main class="relative">
+    <section
+      class="absolute text-black h-16 px-6 py-5 border-t-2 w-full top-0 left-0 bg-[rgb(var(--color-header))] sm:hidden"
+    >
+      <article class="">
+        <form action="">
+          <select name="" id="" class="rounded-md px-2 py-0.5">
+            <option value="hola">Hola</option>
+          </select>
+        </form>
+      </article>
+      <article>
+        <p class="text-ellipsis"></p>
+      </article>
+    </section>
+    <section id="docs" class="gap-2 p-1">
+      <header
+        class="hidden pt-10 pl-5 md:flex md:flex-col md:border-r-2 overflow-y-auto"
+      >
+        {
+          doc.map(({ titulo }) => (
+            <article>
+              <p class="block">{titulo}</p>
+            </article>
+          ))
+        }
+      </header>
+      <main class="pt-10 md:pr-5 lg:border-r-2 lg:pr-10 overflow-y-auto">
+        {
+          doc.map(
+            ({ titulo, descripcion, codigoReq, copiar, info, codigoRes }) => (
+              <article class="mb-20">
+                <h2 class="font-fugaz text-2xl">{titulo}</h2>
+                <p class="mb-7">{descripcion}</p>
+                <p class="text-lg mb-7">Petición:</p>
+                <code class="relative mb-3 block bg-[rgb(var(--color-fondo-codigo))] p-2 rounded-md w-full text-black">
+                  <button class="absolute top-2 right-2 border bg-[rgb(var(--color-fondo-copiar))] p-1 rounded">
+                    <Copiar class="w-5" />
+                  </button>
+                  <p>{codigoReq}</p>
+                </code>
+                {info && (
+                  <p class="flex justify-start items-center mb-7">
+                    <span>
+                      <Asterisco class="w-5" />
+                    </span>
+                    <span class="ml-3">{info}</span>
+                  </p>
+                )}
+                <MostrarOcultarInfo codigoRes={codigoRes} client:visible />
+              </article>
+            )
+          )
+        }
+      </main>
+      <footer class="hidden pt-10 lg:flex w-full overflow-y-auto">hola</footer>
+    </section>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		font-size: 20px;
-		line-height: 1.6;
-	}
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  #docs {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: 768px) {
+    #docs {
+      padding-top: 56px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    #docs {
+      display: grid;
+      grid-template-areas: "docs-titulos info";
+      grid-template-columns: 250px 1fr;
+      gap: 40px;
+      & > header {
+        grid-area: "docs-titulos";
+      }
+      & > main {
+        grid-area: "info";
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    #docs {
+      height: calc(100vh - 56px);
+      display: grid;
+      grid-template-areas: "docs-titulos info opciones";
+      grid-template-columns: 250px 1fr 250px;
+      & > footer {
+        grid-area: "opciones";
+      }
+    }
+  }
 </style>
