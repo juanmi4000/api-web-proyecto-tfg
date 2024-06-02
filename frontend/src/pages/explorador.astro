@@ -1,22 +1,28 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-
-
+import FlechaIzq from "@/multimedia/svg/FlechaIzq.astro";
+import { CrearExplorador } from "@comp/CrearExplorador";
 ---
 
 <Layout title="Explorador de la API">
   <main>
-		<h1>Hola 3</h1>
-	</main>
+    <section>
+      <h2 class="text-3xl text-center my-5">Explorador de la API</h2>
+      <hr class="w-full" />
+    </section>
+    <section class="flex flex-col justify-center items-center mb-10">
+      <CrearExplorador client:load>
+        <FlechaIzq class="w-5" />
+      </CrearExplorador>
+    </section>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		font-size: 20px;
-		line-height: 1.6;
-	}
+  main {
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.6;
+  }
 </style>
