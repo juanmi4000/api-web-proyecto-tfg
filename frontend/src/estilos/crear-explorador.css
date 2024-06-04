@@ -1,7 +1,9 @@
 .cuerpo-respuesta {
   display: grid;
-  grid-template-areas: 'param-post cuerpo';
-  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+    "param-post"
+    "cuerpo";
+  grid-template-rows: 100px 1fr;
   width: 100%;
   height: calc(100vh - 300px);
   & > div{
@@ -14,6 +16,20 @@
 }
 
 @media screen and (min-width: 768px) {
+  .cuerpo-respuesta {
+    display: grid;
+    grid-template-areas: 'param-post cuerpo';
+    grid-template-rows: auto 1fr;
+    width: 100%;
+    height: calc(100vh - 300px);
+    & > div{
+      grid-area: 'param-post';
+    }
+  
+    & > code {
+      grid-area: 'cuerpo';
+    }
+  }
   .cuerpo-respuesta {
     grid-template-rows: 1fr;
     grid-template-columns: 200px 1fr;
