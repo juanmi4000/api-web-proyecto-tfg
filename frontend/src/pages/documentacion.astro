@@ -1,9 +1,6 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import doc from "@/json/docs-info.json";
-import Copiar from "@/multimedia/svg/Copiar.astro";
-import Asterisco from "@/multimedia/svg/Asterisco.astro";
-import { MostrarOcultarInfo } from "@comp/BtnMostrar";
+import Layout from "@/layouts/Layout.astro"
+import { DocumentacionComp } from '@comp/Documentacion'
 ---
 
 <Layout title="Documentación de la API">
@@ -23,46 +20,7 @@ import { MostrarOcultarInfo } from "@comp/BtnMostrar";
       </article>
     </section>
     <section id="docs" class="gap-2 p-1">
-      <header
-        class="hidden pt-10 pl-5 md:flex md:flex-col md:border-r-2 overflow-y-auto"
-      >
-        {
-          doc.map(({ titulo }) => (
-            <article>
-              <p class="block">{titulo}</p>
-            </article>
-          ))
-        }
-      </header>
-      <main class="pt-10 md:pr-5 lg:border-r-2 lg:pr-10 overflow-y-auto">
-        {
-          doc.map(
-            ({ titulo, descripcion, codigoReq, copiar, info, codigoRes }) => (
-              <article class="mb-20">
-                <h2 class="font-fugaz text-2xl">{titulo}</h2>
-                <p class="mb-7">{descripcion}</p>
-                <p class="text-lg mb-7">Petición:</p>
-                <code class="relative mb-3 block bg-[rgb(var(--color-fondo-codigo))] p-2 rounded-md w-full text-black">
-                  <button class="absolute top-2 right-2 border bg-[rgb(var(--color-fondo-copiar))] p-1 rounded">
-                    <Copiar class="w-5" />
-                  </button>
-                  <p>{codigoReq}</p>
-                </code>
-                {info && (
-                  <p class="flex justify-start items-center mb-7">
-                    <span>
-                      <Asterisco class="w-5" />
-                    </span>
-                    <span class="ml-3">{info}</span>
-                  </p>
-                )}
-                <MostrarOcultarInfo codigoRes={codigoRes} client:visible />
-              </article>
-            )
-          )
-        }
-      </main>
-      <footer class="hidden pt-10 lg:flex w-full overflow-y-auto">hola</footer>
+      <DocumentacionComp client:load />
     </section>
   </main>
 </Layout>
