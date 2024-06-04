@@ -1,5 +1,5 @@
 ---
-import Server from "@/multimedia/svg/Server.astro";
+import Server from "@/multimedia/iconos/Server.astro";
 import Enlaces from "@comp/enlaces/Enlaces.astro";
 
 const { pathname } = Astro.url;
@@ -78,18 +78,3 @@ const enlaces = [
     }
   }
 </style>
-
-<!-- <script>
-  
-  let activados = document.querySelectorAll("enlaces-cabecera")
-  activados.forEach(activado => {
-    activado.addEventListener('click', (evento) => {
-      let enlace = evento.target as HTMLElement
-      if (enlace.id === 'enlace-cabecera-1') {
-        enlace.setAttribute("activado", "true")
-      } else if (enlace.id === 'enlace-cabecera-2') {
-        enlace.setAttribute("activado", "true")
-      }
-    })
-  })
-</script> -->
