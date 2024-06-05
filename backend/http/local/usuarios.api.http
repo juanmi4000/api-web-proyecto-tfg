@@ -40,7 +40,7 @@ Content-Type: application/json
 {
     "nombre": {
       "nombrePila": "Juanma",
-      "apellido": "Garcia"
+      "apellido": "García"
     },
     "usuario": "kaneki",
     "email": "kaneki.pai@example.com",
