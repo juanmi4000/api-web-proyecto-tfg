@@ -12,10 +12,10 @@ export class AnimesControlador {
 
   getAll = asyncHandler(async (req: Request, res: Response) => {
     try {
-      const { categoria } = req.query
-      const animes = await this.animeModelo.getAll({ genero: categoria as string })
+      const { genero } = req.query
+      const animes = await this.animeModelo.getAll({ genero: genero as string })
       if (animes == null || animes.length === 0) {
-        return res.status(404).json({ message: 'No se ha podido filtrar. Comprueba la categoría.' })
+        return res.status(404).json({ message: 'No se ha podido filtrar. Compruebe el género.' })
       }
       return res.json(animes)
     } catch (error) {

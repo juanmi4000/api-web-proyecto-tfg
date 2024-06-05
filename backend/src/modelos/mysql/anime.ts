@@ -1,4 +1,4 @@
-import { Anime, AnimePost, AnimeMysql, CategoriaMysql } from '../../tipos/tipos'
+import { Anime, AnimePost, AnimeMysql, GeneroMysql } from '../../tipos/tipos'
 import { ParsedQs } from 'qs'
 import { randomUUID } from 'crypto'
 import { FieldPacket } from 'mysql2/promise'
@@ -20,7 +20,7 @@ export const AnimeModelo = {
       const arrayAnimesEncontrados = []
 
       for (const { id, descripcion, estudio, fecha_inicio: fechaInicio, titulo_texto: tituloTexto, titulo_enlace: tituloEnlace } of animesFiltrados) {
-        const [generos]: [CategoriaMysql[], FieldPacket[]] = await conexion.query(
+        const [generos]: [GeneroMysql[], FieldPacket[]] = await conexion.query(
           'SELECT * FROM anime as a INNER JOIN animes_generos as ag on anime_id = a.id INNER JOIN genero as g ON genero_id = g.id WHERE a.id = ?',
           [id]
         )
@@ -48,7 +48,7 @@ export const AnimeModelo = {
     )
     const animesUnidos = []
     for (const { id, descripcion, estudio, fecha_inicio: fechaInicio, titulo_texto: tituloTexto, titulo_enlace: tituloEnlace } of animes) {
-      const [generos]: [CategoriaMysql[], FieldPacket[]] = await conexion.query(
+      const [generos]: [GeneroMysql[], FieldPacket[]] = await conexion.query(
         'SELECT * FROM anime as a INNER JOIN animes_generos as ag on anime_id = a.id INNER JOIN genero as g ON genero_id = g.id WHERE a.id = ?',
         [id]
       )
@@ -79,7 +79,7 @@ export const AnimeModelo = {
     )
 
     if (animes[0] === undefined) return undefined
-    const [generos]: [CategoriaMysql[], FieldPacket[]] = await conexion.query(
+    const [generos]: [GeneroMysql[], FieldPacket[]] = await conexion.query(
       'SELECT * FROM anime as a INNER JOIN animes_generos as ag on anime_id = a.id INNER JOIN genero as g ON genero_id = g.id WHERE a.id = ?',
       [animes[0].id]
     )
@@ -138,7 +138,7 @@ export const AnimeModelo = {
     )
     if (animes.length === 0) return undefined
 
-    const [generos]: [CategoriaMysql[], FieldPacket[]] = await conexion.query(
+    const [generos]: [GeneroMysql[], FieldPacket[]] = await conexion.query(
       'SELECT * FROM anime as a INNER JOIN animes_generos as ag on anime_id = a.id INNER JOIN genero as g ON genero_id = g.id WHERE a.id = ?',
       [animes[0].id]
     )

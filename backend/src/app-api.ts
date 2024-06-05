@@ -1,11 +1,11 @@
 import express from 'express'
 import { crearAnimesRouter } from './rutas/animes'
 import { corsMiddleware } from './middlewares/cors'
-import { crearCategoriasRouter } from './rutas/categorias'
+import { crearGenerosRouter } from './rutas/generos'
 import { crearUsuariosRouter } from './rutas/usuarios'
-import { AnimeModeloInter, CategoriasModeloInter, UsuarioModeloInter } from './tipos/tipos'
+import { AnimeModeloInter, GenerosModeloInter, UsuarioModeloInter } from './tipos/tipos'
 
-export function crearApi ({ animeModelo, categoriaModelo, usuarioModelo, PUERTO }: { animeModelo: AnimeModeloInter, categoriaModelo: CategoriasModeloInter, usuarioModelo: UsuarioModeloInter, PUERTO: number }): void {
+export function crearApi ({ animeModelo, generoModelo, usuarioModelo, PUERTO }: { animeModelo: AnimeModeloInter, generoModelo: GenerosModeloInter, usuarioModelo: UsuarioModeloInter, PUERTO: number }): void {
   const app = express()
 
   app.disable('x-powered-by')
@@ -19,7 +19,7 @@ export function crearApi ({ animeModelo, categoriaModelo, usuarioModelo, PUERTO 
 
   app.use('/animes', crearAnimesRouter({ animeModelo }))
 
-  app.use('/categorias', crearCategoriasRouter({ categoriaModelo }))
+  app.use('/generos', crearGenerosRouter({ generoModelo }))
 
   app.use('/usuarios', crearUsuariosRouter({ usuarioModelo }))
 

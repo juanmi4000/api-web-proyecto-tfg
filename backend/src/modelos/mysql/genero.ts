@@ -1,12 +1,12 @@
 import { FieldPacket } from 'mysql2/promise'
-import { CategoriaMysql } from '../../tipos/tipos'
+import { GeneroMysql } from '../../tipos/tipos'
 import { conexionMySQL } from '../../utilidades/conexiones'
 
-export const CategoriaModelo = {
+export const GeneroModelo = {
   getAll: async () => {
     const conexion = await conexionMySQL()
 
-    const [generos]: [CategoriaMysql[], FieldPacket[]] = await conexion.query(
+    const [generos]: [GeneroMysql[], FieldPacket[]] = await conexion.query(
       'SELECT id, nombre FROM genero;'
     )
 

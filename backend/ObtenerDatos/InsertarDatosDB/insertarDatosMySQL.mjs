@@ -2,17 +2,17 @@ import mysql from 'mysql2/promise'
 import { createRequire } from 'node:module'
 import { exit } from 'node:process'
 // import { exit } from 'node:process'
-// import { Anime, Categoria, Usuario } from '../../src/tipos/typos'
+// import { Anime, Genero, Usuario } from '../../src/tipos/typos'
 
 const leerArchivo = createRequire(import.meta.url)
 const animes = leerArchivo('../../src/json/animes.json')
-const categorias = leerArchivo('../../src/json/categorias.json')
+const generos = leerArchivo('../../src/json/generos.json.json')
 const usuarios = leerArchivo('../../src/json/usuarios.json')
 /* const animesValidados = animes as Anime[]
-const categoriasValidadas = categorias as Categoria[]
+const generosValidadas = generos as Genero[]
 const usuariosValidados = usuarios as Usuario[] */
 
-let terminadoCategorias = false
+let terminadoGeneros = false
 let terminadoAnimes = false
 let terminadoUsuarios = false
 
@@ -26,14 +26,14 @@ const conf = {
 
 const conexion = await mysql.createConnection(conf)
 
-function insertarCategorias () {
-  categorias.forEach(async ({ id, nombre }) => {
+function insertarGeneros () {
+  generos.forEach(async ({ id, nombre }) => {
     await conexion.query(
       'INSERT INTO genero (id, nombre) VALUES (?, ?)',
       [id, nombre]
     )
   })
-  terminadoCategorias = true
+  terminadoGeneros = true
 }
 
 function insertarAnimes () {
@@ -73,14 +73,14 @@ function insertarUsuarios () {
 }
 
 function verificarTerminado () {
-  if (terminadoAnimes && terminadoCategorias && terminadoUsuarios) {
+  if (terminadoAnimes && terminadoGeneros && terminadoUsuarios) {
     exit(0)
   } else {
     console.log('continuo')
   }
 }
 
-insertarCategorias()
+insertarGeneros()
 insertarAnimes()
 insertarUsuarios()
 

@@ -9,7 +9,7 @@ const validarAnimes = animes as Anime[]
 export const AnimeModelo = {
   getAll: async ({ genero }: { genero: string | string[] | ParsedQs | ParsedQs[] | undefined }) => {
     if (genero != null && !Array.isArray(genero) && typeof genero === 'string') {
-      const animeFilrado: Anime[] = validarAnimes.filter((anime) => anime.generos.some((categoria) => genero.toLowerCase() === categoria.toLowerCase()))
+      const animeFilrado: Anime[] = validarAnimes.filter((anime) => anime.generos.some((generoFiltrar) => genero.toLowerCase() === generoFiltrar.toLowerCase()))
       if (animeFilrado.length !== 0) {
         return animeFilrado
       } else {

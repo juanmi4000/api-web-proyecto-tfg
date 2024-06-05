@@ -1,16 +1,16 @@
 import { Request, Response } from 'express'
 import { asyncHandler } from '../middlewares/manejadorAsync'
-import { CategoriasModeloInter } from '../tipos/tipos'
+import { GenerosModeloInter } from '../tipos/tipos'
 
-export class CategoriasControlador {
-  private readonly categoriaModelo: CategoriasModeloInter
-  constructor ({ categoriaModelo }: { categoriaModelo: CategoriasModeloInter }) {
-    this.categoriaModelo = categoriaModelo
+export class GenerosControlador {
+  private readonly generoModelo: GenerosModeloInter
+  constructor ({ generoModelo }: { generoModelo: GenerosModeloInter }) {
+    this.generoModelo = generoModelo
   }
 
   getAll = asyncHandler(async (_req: Request, res: Response) => {
     try {
-      return res.json(await this.categoriaModelo.getAll())
+      return res.json(await this.generoModelo.getAll())
     } catch (error) {
       console.error('Error en la promesa: ', error)
       return res.status(500).json({ message: 'Error interno del servidor.' })

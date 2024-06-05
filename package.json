@@ -2,7 +2,7 @@
   "name": "proyectotfg",
   "private": true,
   "version": "1.0.0",
-  "description": "Proyecto del Trabajo Final de Grado. La API de Animes es una plataforma que proporciona información detallada sobre una amplia variedad de series de anime. Permite a los usuarios explorar, buscar y obtener información sobre animes. Además de proporcionar usuarios y categorías",
+  "description": "Proyecto del Trabajo Final de Grado. La API de Animes es una plataforma que proporciona información detallada sobre una amplia variedad de series de anime. Permite a los usuarios explorar, buscar y obtener información sobre animes. Además de proporcionar usuarios y géneros",
   "workspaces": [
     "backend",
     "frontend"

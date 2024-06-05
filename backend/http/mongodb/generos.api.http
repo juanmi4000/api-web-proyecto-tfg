@@ -3,5 +3,5 @@
 ### ❌ => indica error
 ### ✅ => indica éxito
 
-### Conseguir todas las categorias
-GET http://localhost:4004/categorias 
+### Conseguir todos los géneros
+GET http://localhost:4004/generos 

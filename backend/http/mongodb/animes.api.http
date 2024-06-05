@@ -12,11 +12,11 @@ GET http://localhost:4004/animes/f60d4bb1-e802-40f6-9f95-0e0aef6516c3
 ### Conseguir un anime ✅
 GET http://localhost:4004/animes/f60d4bb1-e802-40f6-9f95-0e0aef6516c2
 
-### Filtrar animes por categoría ❌
-GET http://localhost:4004/animes?categoria=mech
+### Filtrar animes por género ❌
+GET http://localhost:4004/animes?genero=mech
 
-### Filtrar animes por categoría ✅
-GET http://localhost:4004/animes?categoria=coMedIa
+### Filtrar animes por género ✅
+GET http://localhost:4004/animes?genero=coMedIa
 
 ### Crear un anime ❌
 POST http://localhost:4004/animes

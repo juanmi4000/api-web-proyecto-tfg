@@ -5,29 +5,29 @@ import { createRequire } from 'node:module'
 const require = createRequire(import.meta.url) // tiene la dirección del archivo actual
 const animes = require('../../animes.json')
 
-const categorias = []
+const generos = []
 
 animes.forEach(({ generos }) => {
   let encontrado
   generos.forEach((genero) => {
-    encontrado = categorias.find((categoria) => categoria === genero)
+    encontrado = generos.find((generoFind) => generoFind === genero)
     if (!encontrado) {
-      categorias.push(genero)
+      generos.push(genero)
     }
   })
 })
 
-const jsonCategorias = []
+const jsonGeneros = []
 
-categorias.forEach((categoria) => {
-  jsonCategorias.push({
+generos.forEach((genero) => {
+  jsonGeneros.push({
     id: crypto.randomUUID(),
-    nombre: categoria
+    nombre: genero
   })
 })
 fs.writeFileSync(
-  '../../categorias-copia.json',
-  JSON.stringify(jsonCategorias, null, 2)
+  '../../generos-copia.json',
+  JSON.stringify(jsonGeneros, null, 2)
 )
 
-// categorias.forEach((categoria) => console.log(categoria));
+// generos.forEach((genero) => console.log(genero));

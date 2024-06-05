@@ -5,7 +5,7 @@ import { ParsedQs } from 'qs'
 
 export interface AnimePost {
   estudio: string
-  generos: NombreCategoria[]
+  generos: NombreGenero[]
   descripcion: string
   titulo: {
     enlace: string
@@ -25,7 +25,7 @@ export interface animeIdMysql extends RowDataPacket {
 export interface AnimeMysql extends RowDataPacket {
   id: Anime['id']
   estudio: string
-  generos?: NombreCategoria[]
+  generos?: NombreGenero[]
   descripcion: string
   titulo: {
     enlace: string
@@ -34,17 +34,17 @@ export interface AnimeMysql extends RowDataPacket {
   fechaInicio: string
 }
 
-//! Tipos de Categorías
-export type NombreCategoria = 'Misterio' | 'Seinen' | 'Sobrenatural' | 'Comedia' | 'Erótico' | 'Fantasía' | 'Harem' | 'Romance' | 'Escuela' | 'Ciencia Ficción' | 'Acción' | 'Shounen' | 'Superpoderes' | 'Drama' | 'Militar' | 'Policiaca' | 'Aventura' | 'Mágico' | 'Cotidiano' | 'Demónios' | 'Mecha' | 'Terror' | 'Espacio' | 'Inteligencia Artificial' | 'Shoujo' | 'Thriller' | 'Histórica' | 'Samurái' | 'Deportes' | 'Música' | 'Parodia' | 'Juegos' | 'Niños'
+//! Tipos de Géneros
+export type NombreGenero = 'Misterio' | 'Seinen' | 'Sobrenatural' | 'Comedia' | 'Erótico' | 'Fantasía' | 'Harem' | 'Romance' | 'Escuela' | 'Ciencia Ficción' | 'Acción' | 'Shounen' | 'Superpoderes' | 'Drama' | 'Militar' | 'Policiaca' | 'Aventura' | 'Mágico' | 'Cotidiano' | 'Demónios' | 'Mecha' | 'Terror' | 'Espacio' | 'Inteligencia Artificial' | 'Shoujo' | 'Thriller' | 'Histórica' | 'Samurái' | 'Deportes' | 'Música' | 'Parodia' | 'Juegos' | 'Niños'
 
-export interface Categoria {
+export interface Genero {
   id: `${string}-${string}-${string}-${string}-${string}`
-  nombre: NombreCategoria
+  nombre: NombreGenero
 }
 
-interface CategoriaMysql extends RowDataPacket {
+interface GeneroMysql extends RowDataPacket {
   id: string
-  nombre: NombreCategoria
+  nombre: NombreGenero
 }
 
 //! Tipos de usuarios
@@ -104,8 +104,8 @@ export interface AnimeModeloInter {
   actualizarAnime: (params: { id: Anime['id'] | string, [key: string]: any }) => Promise<Anime | Partial<Anime> | undefined | null>
 }
 
-export interface CategoriasModeloInter {
-  getAll: () => Promise<Categoria[] | CategoriaMysql[] | undefined>
+export interface GenerosModeloInter {
+  getAll: () => Promise<Genero[] | GeneroMysql[] | undefined>
 }
 
 export interface UsuarioModeloInter {
