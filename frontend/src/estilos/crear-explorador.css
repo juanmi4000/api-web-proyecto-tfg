@@ -21,7 +21,7 @@
     grid-template-areas: 'param-post cuerpo';
     grid-template-rows: auto 1fr;
     width: 100%;
-    height: calc(100vh - 300px);
+    height: calc(100vh - 250px);
     & > div{
       grid-area: 'param-post';
     }

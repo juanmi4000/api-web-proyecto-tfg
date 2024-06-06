@@ -5,11 +5,21 @@ interface Props {
   children: string
 }
 
-export function CrearExplorador ({ children }: Props): JSX.Element {
-  const [respuesta, setRespuesta] = useState([])
-  const [opcion, setOpcion] = useState('GET')
+interface Respuesta {
+  [key: string]: any
+}
 
-  const esPost = opcion.toUpperCase() === 'POST'
+interface Parametros {
+  key: `${string}-${string}-${string}-${string}-${string}`
+}
+
+export function CrearExplorador ({ children }: Props): JSX.Element {
+  const [respuesta, setRespuesta] = useState<Respuesta | null>(null)
+  const [opcion, setOpcion] = useState('GET')
+  const [parametros, setParametros] = useState<Parametros[]>([])
+
+  const esGet = opcion.toUpperCase() === 'GET'
+  const esDetete = opcion.toUpperCase() === 'DELETE'
 
   const handleForm = async (
     event: React.FormEvent<HTMLFormElement>
@@ -28,11 +38,25 @@ export function CrearExplorador ({ children }: Props): JSX.Element {
           method: opcion.toUpperCase()
         }
       ).then(async (res) => await res.json())
+      if (respuestaServer.ok === false && respuestaServer.status === 404) {
+        throw new Error('ERROR: Ese endpoint no existe')
+      }
       setRespuesta(respuestaServer)
-      console.log(respuesta)
     } catch (error) {
       console.error(error)
+      if (error instanceof Error) {
+        setRespuesta({ error: error.message })
+      } else {
+        setRespuesta({ error: 'Ha ocurrido un error inesperado' })
+      }
     }
+  }
+
+  /* const manejadorParametros = (evento: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+    setParametros([...parametros, { key: crypto.randomUUID() }])
+  } */
+  const manejadorParametros = (): void => {
+    setParametros([...parametros, { key: crypto.randomUUID() }])
   }
 
   return (
@@ -67,18 +91,33 @@ export function CrearExplorador ({ children }: Props): JSX.Element {
             <input
               type='submit'
               value='Enviar'
-              className='bg-[#B3B2AE] w-max py-1 px-5 rounded-md'
+              className='bg-[#B3B2AE] w-max py-1 px-5 rounded-md cursor-pointer'
             />
           </form>
         </header>
       </article>
       <article className='cuerpo-respuesta gap-2 text-black'>
-        <div className='bg-[rgb(var(--color-btn-border))]'>
-          {esPost && <p>hola</p>}
+        <div className='bg-[rgb(var(--color-btn-border))] rounded p-2'>
+          {(!esGet && !esDetete) && (
+            <>
+              <button className='text-base text-slate-700' onClick={manejadorParametros}>Añadir parámetros</button>
+              <div id='parametros' className='flex flex-col gap-3'>
+                {parametros.map(({ key }) => {
+                  return (
+                    <div key={key} className='mx-2'>
+                      <input type='text' placeholder='Clave' className='w-28' />
+                      <input type='text' placeholder='Valor' />
+                      <hr />
+                    </div>
+                  )
+                })}
+              </div>
+            </>
+          )}
         </div>
 
-        <code className='bg-[rgb(var(--color-btn-border))] w-full overflow-y-auto text-wrap'>
-          {respuesta.length !== 0 && (
+        <code className='bg-[rgb(var(--color-btn-border))] w-full overflow-y-auto text-wrap rounded-sm'>
+          {respuesta !== null && (
             <pre>{JSON.stringify(respuesta, null, 2)}</pre>
           )}
         </code>
