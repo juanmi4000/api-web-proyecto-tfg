@@ -9,16 +9,19 @@ const nombreRuta =
     : pathname;
 
 const enlaces = [
-  { href: "/", texto: "Inicio"},
+  { href: "/", texto: "Inicio" },
   { href: "/documentacion", texto: "Documentación" },
   { href: "/explorador", texto: "Explorador de la API" },
 ].map((enlace) => ({
   ...enlace,
-  activo: nombreRuta === enlace.href
+  activo: nombreRuta === enlace.href,
 }));
 ---
 
-<header class="max-h-screen w-full bg-[rgb(var(--color-header))]">
+<header
+  id="header"
+  class="relative max-h-screen w-full bg-[rgb(var(--color-header))]"
+>
   <nav class="flex items-center justify-between px-5 sm:px-10 lg:px-14">
     <article class="flex h-14 p-1">
       <a class="w-full h-full cursor-pointer" href="/"
@@ -37,7 +40,7 @@ const enlaces = [
       </ul>
     </article>
     <article class="z-10 sm:hidden">
-      <button onclick="" aria-label="Mostrar menú">
+      <button id="boton-menu" aria-label="Mostrar menú">
         <!-- Ver si hay que cambiar aria-label cuando lo muestre -->
         <span class="bg-white"></span>
         <span class="bg-white"></span>
@@ -45,9 +48,57 @@ const enlaces = [
       </button>
     </article>
   </nav>
+  <article
+    id="menu"
+    class="hidden absotule h-screen top-0 left-0 w-full z-20 justify-center items-center animate-slide-in-top duration-100"
+  >
+    <ul class="flex flex-col gap-4">
+      {
+        enlaces.map(({ href, texto, activo }) => (
+          <li>
+            <Enlaces href={href} texto={texto} {activo} />
+          </li>
+        ))
+      }
+    </ul>
+  </article>
 </header>
 
+<script>
+  const botonMenu = document.getElementById("boton-menu");
+  botonMenu?.addEventListener("click", () => {
+    const menu = document.getElementById("menu");
+    const mainOcultar = document.getElementById("ocultar-main");
+    const footerOcultar = document.getElementById("ocultar-footer");
+    if (menu == null || mainOcultar == null) return;
+
+    const dataActivo = menu.getAttribute("data-mostrar");
+    if (dataActivo) {
+      menu.removeAttribute("data-mostrar");
+      menu.classList.add("hidden");
+      mainOcultar.classList.remove("hidden");
+      footerOcultar?.classList.remove("hidden");
+      menu.classList.remove("flex", "justify-center", "items-center");
+      botonMenu.querySelectorAll("span").forEach((span) => {
+        span.classList.remove("span-cambiar")
+      })
+    } else {
+      menu.setAttribute("data-mostrar", "true");
+      mainOcultar.classList.add("hidden");
+      footerOcultar?.classList.add("hidden");
+      menu.classList.remove("hidden");
+      menu.classList.add("flex", "justify-center", "items-center");
+      botonMenu.querySelectorAll("span").forEach((span) => {
+        span.classList.add("span-cambiar")
+      })
+    }
+  });
+</script>
+
 <style>
+  #menu {
+    height: calc(100vh - 56px);
+  }
   button {
     display: flex;
     flex-direction: column;
@@ -58,7 +109,6 @@ const enlaces = [
     border: 0;
     background: transparent;
     gap: 0.65rem;
-    z-index: 10;
 
     > span {
       height: 2px;
@@ -76,5 +126,17 @@ const enlaces = [
     &:hover span:last-child {
       transform: rotate(-45deg);
     }
+  }
+
+  .span-cambiar:first-child {
+    transform: rotate(45deg);
+  }
+
+  .span-cambiar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .span-cambiar:last-child {
+    transform: rotate(-45deg);
   }
 </style>
