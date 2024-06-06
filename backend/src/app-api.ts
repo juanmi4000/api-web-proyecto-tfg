@@ -13,7 +13,7 @@ export function crearApi ({ animeModelo, generoModelo, usuarioModelo, PUERTO }: 
   app.use(express.json())
   app.use(corsMiddleware())
 
-  app.get('/', (_req, res) => {
+  app.get('/debug', (_req, res) => {
     res.json({ message: 'Hello World!' })
   })
 
