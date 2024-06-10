@@ -17,7 +17,6 @@ interface Contenido {
   copiar?: string
   info?: string
   idHref: string
-  href: string
 }
 
 interface DocsInfo {
@@ -69,7 +68,7 @@ export function DocumentacionComp (): JSX.Element {
   ): Promise<void> => {
     // const textoCopiar = (e.target as HTMLButtonElement).getAttribute('data-copiar') // me interesa el que elemento que originó el evento aunque es el svg en este caso
     const textoCopiar = e.currentTarget.getAttribute('data-copiar')
-    if (textoCopiar === null) return
+    if (textoCopiar == null) return
     await navigator.clipboard.writeText(textoCopiar)
     const notify = (): void => {
       toast.success('¡Se ha copiado correctamente!', {
@@ -87,9 +86,17 @@ export function DocumentacionComp (): JSX.Element {
     const opciones = opcion.options
     const id = opciones[indice].getAttribute('data-id') as Contenido['id'] | null
     const titulo = opcion.value
-    if (id === null) return
+    if (id == null) return
     setIdMostrarInfo(id)
     setTituloPrincipal(titulo)
+  }
+
+  const manejadorEnlace = (evento: React.MouseEvent<HTMLAnchorElement, MouseEvent>, idHref: string): void => {
+    evento.preventDefault()
+    const elemento = document.getElementById(idHref)
+    if (elemento != null) {
+      elemento.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
@@ -192,11 +199,12 @@ export function DocumentacionComp (): JSX.Element {
         </main>
         <footer className='hidden pt-10 lg:flex lg:flex-col lg:gap-2 w-full overflow-y-auto'>
           <h3 className='font-fugaz text-lg'>En esta página</h3>
-          {info.map(({ id, href, titulo }) => (
+          {info.map(({ id, idHref, titulo }) => (
             <a
-              href={href}
+              href={`#${idHref}`}
               key={id}
               className='text-base hover:text-slate-400'
+              onClick={(e) => { manejadorEnlace(e, idHref) }}
             >
               {titulo}
             </a>
