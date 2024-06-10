@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import '@/estilos/documentacion.css'
 
 interface Contenido {
+  id: `${string}-${string}-${string}-${string}-${string}`
   titulo: string
   descripcion: string
   codigoReq?: string
@@ -19,8 +20,13 @@ interface Contenido {
   href: string
 }
 
+interface DocsInfo {
+  id: `${string}-${string}-${string}-${string}-${string}`
+  contenido: Contenido[]
+}
+
 export function DocumentacionComp (): JSX.Element {
-  const [idMostrarInfo, setIdMostrarInfo] = useState(
+  const [idMostrarInfo, setIdMostrarInfo] = useState<Contenido['id']>(
     'd0c8ec5b-b84c-4f6d-b600-0cbda125aa02'
   )
   const [tituloPrincipal, setTituloPrincipal] = useState('Introducción')
@@ -29,7 +35,7 @@ export function DocumentacionComp (): JSX.Element {
   useEffect(() => {
     const contenidoEncontrado = docs_info.find(({ id }) => {
       return id === idMostrarInfo
-    })
+    }) as DocsInfo | undefined
     if (contenidoEncontrado !== undefined) {
       setInfo(contenidoEncontrado.contenido)
     }
@@ -79,7 +85,7 @@ export function DocumentacionComp (): JSX.Element {
     const opcion = evento.currentTarget
     const indice = opcion.selectedIndex
     const opciones = opcion.options
-    const id = opciones[indice].getAttribute('data-id')
+    const id = opciones[indice].getAttribute('data-id') as Contenido['id'] | null
     const titulo = opcion.value
     if (id === null) return
     setIdMostrarInfo(id)
@@ -116,7 +122,7 @@ export function DocumentacionComp (): JSX.Element {
                   className='ml-5 text-lg my-1 block hover:text-slate-400'
                   key={idSubtitulo}
                   onClick={() => {
-                    setIdMostrarInfo(idSubtitulo)
+                    setIdMostrarInfo((idSubtitulo as Contenido['id']))
                     setTituloPrincipal(subtitulo)
                   }}
                 >
@@ -132,6 +138,7 @@ export function DocumentacionComp (): JSX.Element {
           {info.map(
             (
               {
+                id,
                 titulo,
                 descripcion,
                 codigoReq,
@@ -139,10 +146,9 @@ export function DocumentacionComp (): JSX.Element {
                 info,
                 codigoRes,
                 idHref
-              },
-              index
+              }
             ) => (
-              <article className='mb-10' key={index} id={idHref}>
+              <article className='mb-10' key={id} id={idHref}>
                 {!esIntroduccion && (
                   <h3 className='font-fugaz text-2xl'>{titulo}</h3>
                 )}
@@ -186,10 +192,10 @@ export function DocumentacionComp (): JSX.Element {
         </main>
         <footer className='hidden pt-10 lg:flex lg:flex-col lg:gap-2 w-full overflow-y-auto'>
           <h3 className='font-fugaz text-lg'>En esta página</h3>
-          {info.map(({ href, titulo }, index) => (
+          {info.map(({ id, href, titulo }) => (
             <a
               href={href}
-              key={index}
+              key={id}
               className='text-base hover:text-slate-400'
             >
               {titulo}
