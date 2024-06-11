@@ -5,6 +5,8 @@ import { MostrarOcultarInfo } from '@comp/BtnMostrar'
 import { AsteriscoReact } from '@/multimedia/iconos/Asterisco'
 import { CopiarReact } from '@/multimedia/iconos/Copiar'
 import { toast, ToastContainer } from 'react-toastify'
+import type { Opciones } from '@/tipos/tipos'
+import { DocsLista } from './DocsLista'
 import 'react-toastify/dist/ReactToastify.css'
 import '@/estilos/documentacion.css'
 
@@ -17,6 +19,7 @@ interface Contenido {
   copiar?: string
   info?: string
   idHref: string
+  opciones?: Opciones[]
 }
 
 interface DocsInfo {
@@ -152,7 +155,8 @@ export function DocumentacionComp (): JSX.Element {
                 copiar,
                 info,
                 codigoRes,
-                idHref
+                idHref,
+                opciones
               }
             ) => (
               <article className='mb-10' key={id} id={idHref}>
@@ -182,6 +186,7 @@ export function DocumentacionComp (): JSX.Element {
                     </code>
                   </>
                 )}
+                {opciones !== undefined && <DocsLista opciones={opciones} />}
                 {info !== undefined && (
                   <p className='flex justify-start items-center mb-7 text-base'>
                     <span>

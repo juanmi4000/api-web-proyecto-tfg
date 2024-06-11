@@ -45,3 +45,9 @@ export interface Respuesta {
 export interface Parametros {
   key: `${string}-${string}-${string}-${string}-${string}`
 }
+
+export interface Opciones {
+  idOpcion: `${string}-${string}-${string}-${string}-${string}`
+  clave: string
+  definicion?: string
+}
