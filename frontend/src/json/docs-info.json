@@ -17,8 +17,8 @@
         "id": "7a0330ab-8b06-48d5-ab91-96d34296ebf4",
         "titulo": "Conseguir todos los animes",
         "descripcion": "Para acceder a la lista de 63 animes debes utilizar el endpoint /animes",
-        "codigoReq": "fetch('http://localhost:4000/animes')",
-        "copiar": "fetch('http://localhost:4000/animes')",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/animes')",
+        "copiar": "fetch('https://proyectotfg.onrender.com/animes')",
         "codigoRes": "[{\"id\": \"59b57db3-122c-4c47-9201-7e8ca06e3d28\", \"estudio\": \"Wit estudio\", \"generos\": [\"Acci\u00f3n\", \"Drama\", \"Fantas\u00eda\", \"Terror\", \"Thriller\"], \"descripcion\": \"A medida que el mundo est\u00e1 en medio de una revoluci\u00f3n industrial, aparece un monstruo que no puede ser derrotado a menos que su coraz\u00f3n, protegido por una capa de hierro, sea perforado. Al infectar...\", \"titulo\": {\"enlace\": \"http://myanimelist.net/anime/28623/Koutetsujou_no_Kabaneri\", \"texto\": \"Koutetsujou no Kabaneri\"}, \"fechaInicio\": \"07/04/2016\"}, {\"extras\": \"/** 61 **/\"}, {\"id\": \"f60d4bb1-e802-40f6-9f95-0e0aef6516c2\", \"estudio\": \"Bones\", \"generos\": [\"Misterio\", \"Seinen\", \"Sobrenatural\"], \"descripcion\": \"Nakajima Atsushi fue expulsado de su orfanato y ahora no tiene d\u00f3nde ir ni qu\u00e9 comer. Mientras est\u00e1 junto a un r\u00edo, al borde de la inanici\u00f3n, rescata a un hombre que intentaba suicidarse caprichosamente. Ese hombre es Dazai Osamu, y \u00e9l y su...\", \"titulo\": {\"enlace\": \"http://myanimelist.net/anime/31478/Bungou_Stray_Dogs\", \"texto\": \"Bungou Stray Dogs\"}, \"fechaInicio\": \"07/04/2016\"}]",
         "idHref": "getAllAnimes"
       },
@@ -26,8 +26,8 @@
         "id": "fda4b646-79e2-428d-af07-0a2f86c46edc",
         "titulo": "Obtener un anime",
         "descripcion": "Se puede buscar un anime por id utilizando el endpoint /animes/:id",
-        "codigoReq": "fetch('http://localhost:4000/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28')",
-        "copiar": "fetch('http://localhost:4000/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28')",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28')",
+        "copiar": "fetch('https://proyectotfg.onrender.com/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28')",
         "codigoRes": "[{\"id\": \"59b57db3-122c-4c47-9201-7e8ca06e3d28\", \"estudio\": \"Wit estudio\", \"generos\": [\"Acci\u00f3n\", \"Drama\", \"Fantas\u00eda\", \"Terror\", \"Thriller\"], \"descripcion\": \"A medida que el mundo est\u00e1 en medio de una revoluci\u00f3n industrial, aparece un monstruo que no puede ser derrotado a menos que su coraz\u00f3n, protegido por una capa de hierro, sea perforado. Al infectar...\", \"titulo\": {\"enlace\": \"http://myanimelist.net/anime/28623/Koutetsujou_no_Kabaneri\", \"texto\": \"Koutetsujou no Kabaneri\"}, \"fechaInicio\": \"07/04/2016\"}]",
         "idHref": "getPorIdAnimes"
       },
@@ -35,8 +35,8 @@
         "id": "48e80e92-d4dd-4f06-8b76-4468d1a321b8",
         "titulo": "Obtener animes por género",
         "descripcion": "Se puede buscar todos los animes a través de un género en específico. Para buscarlos utiliza el parámetro genero en la petición en el endpoint /animes?genero=mecha.",
-        "codigoReq": "fetch('http://localhost:4000/animes?genero=mecha')",
-        "copiar": "fetch('http://localhost:4000/animes?genero=mecha')",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/animes?genero=mecha')",
+        "copiar": "fetch('https://proyectotfg.onrender.com/animes?genero=mecha')",
         "codigoRes": "[{\"id\": \"59b57db3-122c-4c47-9201-7e8ca06e3d28\", \"estudio\": \"Wit estudio\", \"generos\": [\"Acci\u00f3n\", \"Drama\", \"Fantas\u00eda\", \"Terror\", \"Thriller\"], \"descripcion\": \"A medida que el mundo est\u00e1 en medio de una revoluci\u00f3n industrial, aparece un monstruo que no puede ser derrotado a menos que su coraz\u00f3n, protegido por una capa de hierro, sea perforado. Al infectar...\", \"titulo\": {\"enlace\": \"http://myanimelist.net/anime/28623/Koutetsujou_no_Kabaneri\", \"texto\": \"Koutetsujou no Kabaneri\"}, \"fechaInicio\": \"07/04/2016\"}]",
         "idHref": "getAnimesGeneros"
       },
@@ -44,8 +44,8 @@
         "id": "21c20d18-2e9a-43de-b150-ff8ed4555d13",
         "titulo": "Crear un anime",
         "descripcion": "Puedes crear un anime con el método POST llamando al endpoint /animes y pasándole al cuerpo de la petición los atributos necesarios.",
-        "codigoReq": "fetch('http://localhost:4000/animes', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({ \n\t\testudio: 'Toei Animation', \n\t\tgeneros: [\n\t\t\t'Acción', \n\t\t\t'Aventura', \n\t\t\t'Fantasía', \n\t\t\t'Shounen', \n\t\t\t'Superpoderes'\n\t\t], \n\t\tdescripcion: 'One Piece narra la historia de un joven llamado Monkey D. Luffy, que inspirado por ...', \n\t\ttitulo: { \n\t\t\tenlace: 'https://myanimelist.net/anime/21/One_Piece', \n\t\t\ttexto: 'One Piece'\n\t\t}, \n\t\tfechaInicio: '20/10/1999' \n\t})\n})",
-        "copiar": "fetch('http://localhost:4000/animes', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({ \n\t\testudio: 'Toei Animation', \n\t\tgeneros: [\n\t\t\t'Acción', \n\t\t\t'Aventura', \n\t\t\t'Fantasía', \n\t\t\t'Shounen', \n\t\t\t'Superpoderes'\n\t\t], \n\t\tdescripcion: 'One Piece narra la historia de un joven llamado Monkey D. Luffy, que inspirado por ...', \n\t\ttitulo: { \n\t\t\tenlace: 'https://myanimelist.net/anime/21/One_Piece', \n\t\t\ttexto: 'One Piece'\n\t\t}, \n\t\tfechaInicio: '20/10/1999' \n\t})\n})",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/animes', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({ \n\t\testudio: 'Toei Animation', \n\t\tgeneros: [\n\t\t\t'Acción', \n\t\t\t'Aventura', \n\t\t\t'Fantasía', \n\t\t\t'Shounen', \n\t\t\t'Superpoderes'\n\t\t], \n\t\tdescripcion: 'One Piece narra la historia de un joven llamado Monkey D. Luffy, que inspirado por ...', \n\t\ttitulo: { \n\t\t\tenlace: 'https://myanimelist.net/anime/21/One_Piece', \n\t\t\ttexto: 'One Piece'\n\t\t}, \n\t\tfechaInicio: '20/10/1999' \n\t})\n})",
+        "copiar": "fetch('https://proyectotfg.onrender.com/animes', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({ \n\t\testudio: 'Toei Animation', \n\t\tgeneros: [\n\t\t\t'Acción', \n\t\t\t'Aventura', \n\t\t\t'Fantasía', \n\t\t\t'Shounen', \n\t\t\t'Superpoderes'\n\t\t], \n\t\tdescripcion: 'One Piece narra la historia de un joven llamado Monkey D. Luffy, que inspirado por ...', \n\t\ttitulo: { \n\t\t\tenlace: 'https://myanimelist.net/anime/21/One_Piece', \n\t\t\ttexto: 'One Piece'\n\t\t}, \n\t\tfechaInicio: '20/10/1999' \n\t})\n})",
         "info": "Recuerda que se simula la creación del anime, por lo tanto, no se guarda el cambio en nuestra base de datos. Además, la id se genera automáticamente cuando se crea, así que cuando hagas la petición, te devuelve una id diferente a la del ejemplo.",
         "codigoRes": "[{\"id\": \"8b060089-2e48-4bfc-92dd-6f533d8bff25\", \"estudio\": \"Toei Animation\", \"generos\": [\"Acci\u00f3n\", \"Aventura\", \"Fantas\u00eda\", \"Shounen\", \"Superpoderes\"], \"descripcion\": \"One Piece narra la historia de un joven llamado Monkey D. Luffy, que inspirado por ...\", \"titulo\": {\"enlace\": \"https://myanimelist.net/anime/21/One_Piece\", \"texto\": \"One Piece\"}, \"fechaInicio\": \"20/10/1999\"}]",
         "idHref": "crearAnime"
@@ -54,8 +54,8 @@
         "id": "0d8801a3-beed-48f2-838c-46638a88963e",
         "titulo": "Actualizar un anime",
         "descripcion": "Para actualizar un anime, debes hacer uso del PATCH y pasarle una id como parámetro al endpoint /animes/:id.",
-        "codigoReq": "fetch('http://localhost:4000/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28', { \n\tmethod: 'PATCH', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({ \n\t\testudio : 'Toei Animation', \n\t\tfechaInicio : '30/10/1999' \n\t})\n})",
-        "copiar": "fetch('http://localhost:4000/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28', { \n\tmethod: 'PATCH', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({ \n\t\testudio : 'Toei Animation', \n\t\tfechaInicio : '30/10/1999' \n\t})\n})",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28', { \n\tmethod: 'PATCH', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({ \n\t\testudio : 'Toei Animation', \n\t\tfechaInicio : '30/10/1999' \n\t})\n})",
+        "copiar": "fetch('https://proyectotfg.onrender.com/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28', { \n\tmethod: 'PATCH', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({ \n\t\testudio : 'Toei Animation', \n\t\tfechaInicio : '30/10/1999' \n\t})\n})",
         "info": "Recuerda que se simula la actualización del anime, por lo tanto, no se guarda el cambio en nuestra base de datos.",
         "codigoRes": "[{\"id\": \"59b57db3-122c-4c47-9201-7e8ca06e3d28\", \"estudio\": \"Toei Animation\", \"generos\": [\"Acci\u00f3n\", \"Drama\", \"Fantas\u00eda\", \"Terror\", \"Thriller\"], \"descripcion\": \"A medida que el mundo est\u00e1 en medio de una revoluci\u00f3n industrial, aparece un monstruo que no puede ser derrotado a menos que su coraz\u00f3n, protegido por una capa de hierro, sea perforado. Al infectar...\", \"titulo\": {\"enlace\": \"http://myanimelist.net/anime/28623/Koutetsujou_no_Kabaneri\", \"texto\": \"Koutetsujou no Kabaneri\"}, \"fechaInicio\": \"30/10/1999\"}]",
         "idHref": "actualizarAnime"
@@ -64,8 +64,8 @@
         "id": "901db664-94d0-40af-bbe9-540b4e848ad8",
         "titulo": "Eliminar anime",
         "descripcion": "Para acceder a la lista de 63 animes debes utilizar el endpoint /animes",
-        "codigoReq": "fetch('http://localhost:4000/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28', { \n\tmethod: 'DELETE' \n})",
-        "copiar": "fetch('http://localhost:4000/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28', { method: 'DELETE' })",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28', { \n\tmethod: 'DELETE' \n})",
+        "copiar": "fetch('https://proyectotfg.onrender.com/animes/59b57db3-122c-4c47-9201-7e8ca06e3d28', { method: 'DELETE' })",
         "info": "Recuerda que se simula la eliminación del anime, por lo tanto, no se guarda el cambio en nuestra base de datos.",
         "codigoRes": "[{ \"message\": \"Anime eliminado\" }]",
         "idHref": "eliminarAnime"
@@ -79,8 +79,8 @@
         "id": "c8abf36b-dd8f-488c-92c0-1d80eadfb5a1",
         "titulo": "Conseguir todos los géneros",
         "descripcion": "Para acceder a la lista de 33 géneros debes utilizar el endpoint /generos",
-        "codigoReq": "fetch('http://localhost:4000/generos')",
-        "copiar": "fetch('http://localhost:4000/generos')",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/generos')",
+        "copiar": "fetch('https://proyectotfg.onrender.com/generos')",
         "codigoRes": "[{\"id\": \"ebd8e888-ea8f-46f0-9bf2-4b59a85bfaa6\", \"nombre\": \"Misterio\"}, {\"extras\": \"/** 31 **/\"}, {\"id\": \"0dcbd6cf-f682-451c-a7d9-8c56f1ce299e\", \"nombre\": \"Seinen\"}]",
         "idHref": "getAllGeneros"
       }
@@ -93,8 +93,8 @@
         "id": "9cf6b98f-4525-41ab-b194-884b1def1008",
         "titulo": "Conseguir todos los usuarios",
         "descripcion": "Para acceder a la lista de 20 usuarios debes utilizar el endpoint /usuarios",
-        "codigoReq": "fetch('http://localhost:4000/usuarios')",
-        "copiar": "fetch('http://localhost:4000/usuarios')",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/usuarios')",
+        "copiar": "fetch('https://proyectotfg.onrender.com/usuarios')",
         "codigoRes": "[{\"id\": \"3fd2718e-d2b3-4e1c-a6a6-1d8875144b95\", \"nombre\": {\"nombrePila\": \"Savitha\", \"apellido\": \"Pai\"}, \"usuario\": \"redlion811\", \"email\": \"savitha.pai@example.com\", \"contrasena\": \"micheal\", \"telefono\": \"7561111311\", \"genero\": \"female\", \"calle\": {\"nombre\": \"Altamount Rd\", \"numero\": 8277}, \"imagen\": {\"grande\": \"https://randomuser.me/api/portraits/women/53.jpg\", \"mediana\": \"https://randomuser.me/api/portraits/med/women/53.jpg\", \"miniatura\": \"https://randomuser.me/api/portraits/thumb/women/53.jpg\"}}, {\"extras\": \"/** 18 **/\"}, {\"id\": \"bad7ac23-88c6-4e3a-8209-25e4e900fc56\", \"nombre\": {\"nombrePila\": \"Niels\", \"apellido\": \"Vervloet\"}, \"usuario\": \"happycat256\", \"email\": \"niels.vervloet@example.com\", \"contrasena\": \"malcolm\", \"telefono\": \"(089) 5931990\", \"genero\": \"male\", \"calle\": {\"nombre\": \"Kasteel Hasselholtstraat\", \"numero\": 1864}, \"imagen\": {\"grande\": \"https://randomuser.me/api/portraits/men/88.jpg\", \"mediana\": \"https://randomuser.me/api/portraits/med/men/88.jpg\", \"miniatura\": \"https://randomuser.me/api/portraits/thumb/men/88.jpg\"}}]",
         "idHref": "getAllUsuarios"
       },
@@ -102,8 +102,8 @@
         "id": "804b83d9-a959-4374-b9f9-d739eb667c61",
         "titulo": "Obtener un usuario",
         "descripcion": "Se puede buscar un usuario por id utilizando el endpoint /usuarios/:id",
-        "codigoReq": "fetch('http://localhost:4000/usuarios/3fd2718e-d2b3-4e1c-a6a6-1d8875144b95')",
-        "copiar": "fetch('http://localhost:4000/usuarios/3fd2718e-d2b3-4e1c-a6a6-1d8875144b95')",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/usuarios/3fd2718e-d2b3-4e1c-a6a6-1d8875144b95')",
+        "copiar": "fetch('https://proyectotfg.onrender.com/usuarios/3fd2718e-d2b3-4e1c-a6a6-1d8875144b95')",
         "codigoRes": "[{\"id\": \"3fd2718e-d2b3-4e1c-a6a6-1d8875144b95\", \"nombre\": {\"nombrePila\": \"Savitha\", \"apellido\": \"Pai\"}, \"usuario\": \"redlion811\", \"email\": \"savitha.pai@example.com\", \"contrasena\": \"micheal\", \"telefono\": \"7561111311\", \"genero\": \"female\", \"calle\": {\"nombre\": \"Altamount Rd\", \"numero\": 8277}, \"imagen\": {\"grande\": \"https://randomuser.me/api/portraits/women/53.jpg\", \"mediana\": \"https://randomuser.me/api/portraits/med/women/53.jpg\", \"miniatura\": \"https://randomuser.me/api/portraits/thumb/women/53.jpg\"}}]",
         "idHref": "getPorIdUsuarios"
       },
@@ -111,8 +111,8 @@
         "id": "29a755e5-40f1-4476-9374-b2f1d5a3204f",
         "titulo": "Crear un usuario",
         "descripcion": "Puedes crear un usuario con el método POST llamando al endpoint /usuarios y pasándole al cuerpo de la petición los atributos necesarios.",
-        "codigoReq": "fetch('http://localhost:4000/usuarios', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({\n\t\tnombre: {\n\t\t\tnombrePila: 'Juanma', \n\t\t\tapellido: 'Garcia'\n\t\t}, \n\t\tusuario: 'kaneki', \n\t\temail: 'kaneki.pai@example.com', \n\t\tcontrasena: 'kaneki', \n\t\ttelefono: '699999999', \n\t\tgenero: 'male', \n\t\tcalle: {\n\t\t\tnombre: 'Flores', \n\t\t\tnumero: 34\n\t\t}, \n\t\timagen: {\n\t\t\tgrande: 'https://randomuser.me/api/portraits/women/53.jpg', \n\t\t\tmediana: 'https://randomuser.me/api/portraits/med/women/53.jpg', \n\t\t\tminiatura: 'https://randomuser.me/api/portraits/thumb/women/53.jpg'\n\t\t}\n\t})\n})",
-        "copiar": "fetch('http://localhost:4000/usuarios', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({\n\t\tnombre: {\n\t\t\tnombrePila: 'Juanma', \n\t\t\tapellido: 'Garcia'\n\t\t}, \n\t\tusuario: 'kaneki', \n\t\temail: 'kaneki.pai@example.com', \n\t\tcontrasena: 'kaneki', \n\t\ttelefono: '699999999', \n\t\tgenero: 'male', \n\t\tcalle: {\n\t\t\tnombre: 'Flores', \n\t\t\tnumero: 34\n\t\t}, \n\t\timagen: {\n\t\t\tgrande: 'https://randomuser.me/api/portraits/women/53.jpg', \n\t\t\tmediana: 'https://randomuser.me/api/portraits/med/women/53.jpg', \n\t\t\tminiatura: 'https://randomuser.me/api/portraits/thumb/women/53.jpg'\n\t\t}\n\t})\n})",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/usuarios', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({\n\t\tnombre: {\n\t\t\tnombrePila: 'Juanma', \n\t\t\tapellido: 'Garcia'\n\t\t}, \n\t\tusuario: 'kaneki', \n\t\temail: 'kaneki.pai@example.com', \n\t\tcontrasena: 'kaneki', \n\t\ttelefono: '699999999', \n\t\tgenero: 'male', \n\t\tcalle: {\n\t\t\tnombre: 'Flores', \n\t\t\tnumero: 34\n\t\t}, \n\t\timagen: {\n\t\t\tgrande: 'https://randomuser.me/api/portraits/women/53.jpg', \n\t\t\tmediana: 'https://randomuser.me/api/portraits/med/women/53.jpg', \n\t\t\tminiatura: 'https://randomuser.me/api/portraits/thumb/women/53.jpg'\n\t\t}\n\t})\n})",
+        "copiar": "fetch('https://proyectotfg.onrender.com/usuarios', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({\n\t\tnombre: {\n\t\t\tnombrePila: 'Juanma', \n\t\t\tapellido: 'Garcia'\n\t\t}, \n\t\tusuario: 'kaneki', \n\t\temail: 'kaneki.pai@example.com', \n\t\tcontrasena: 'kaneki', \n\t\ttelefono: '699999999', \n\t\tgenero: 'male', \n\t\tcalle: {\n\t\t\tnombre: 'Flores', \n\t\t\tnumero: 34\n\t\t}, \n\t\timagen: {\n\t\t\tgrande: 'https://randomuser.me/api/portraits/women/53.jpg', \n\t\t\tmediana: 'https://randomuser.me/api/portraits/med/women/53.jpg', \n\t\t\tminiatura: 'https://randomuser.me/api/portraits/thumb/women/53.jpg'\n\t\t}\n\t})\n})",
         "info": "Recuerda que se simula la creación del usuario, por lo tanto, no se guarda el cambio en nuestra base de datos. Además, la id se genera automáticamente cuando se crea, así que cuando hagas la petición, te devolverá una id diferente a la del ejemplo.",
         "codigoRes": "[{\"id\": \"3fd2718e-d2b3-4e1c-a6a6-1d8875144b95\", \"nombre\": {\"nombrePila\": \"Juanma\", \"apellido\": \"García\"}, \"usuario\": \"kaneki\", \"email\": \"kaneki.pai@example.com\", \"contrasena\": \"kaneki\", \"telefono\": \"699999999\", \"genero\": \"male\", \"calle\": {\"nombre\": \"Flores\", \"numero\": 34 }, \"imagen\": {\"grande\": \"https://randomuser.me/api/portraits/women/53.jpg\", \"mediana\": \"https://randomuser.me/api/portraits/med/women/53.jpg\", \"miniatura\": \"https://randomuser.me/api/portraits/thumb/women/53.jpg\"}}]",
         "idHref": "crearUsuario"
@@ -121,8 +121,8 @@
         "id": "3ef0779f-4a4f-410b-b374-351f354cdcea",
         "titulo": "Actualizar un usuario",
         "descripcion": "Para actualizar un usuario, debes hacer uso del PATCH y pasarle una id como parámetro al endpoint /usuarios/:id.",
-        "codigoReq": "fetch('http://localhost:4000/usuarios', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({\n\t\tnombre: {\n\t\t\tnombrePila: 'Pepito', \n\t\t\tapellido: 'Grillo'\n\t\t}\n\t})\n})",
-        "copiar": "fetch('http://localhost:4000/usuarios', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({\n\t\tnombre: {\n\t\t\tnombrePila: 'Pepito', \n\t\t\tapellido: 'Grillo'\n\t\t}\n\t})\n})",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/usuarios', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({\n\t\tnombre: {\n\t\t\tnombrePila: 'Pepito', \n\t\t\tapellido: 'Grillo'\n\t\t}\n\t})\n})",
+        "copiar": "fetch('https://proyectotfg.onrender.com/usuarios', { \n\tmethod: 'POST', \n\theaders: { \n\t\t'Content-Type': 'application/json' \n\t}, \n\tbody: JSON.stringify({\n\t\tnombre: {\n\t\t\tnombrePila: 'Pepito', \n\t\t\tapellido: 'Grillo'\n\t\t}\n\t})\n})",
         "info": "Recuerda que se simula la actualización del usuario, por lo tanto, no se guarda el cambio en nuestra base de datos.",
         "codigoRes": "[{\"id\": \"3fd2718e-d2b3-4e1c-a6a6-1d8875144b95\", \"nombre\": {\"nombrePila\": \"Pepito\", \"apellido\": \"Grillo\"}, \"usuario\": \"redlion811\", \"email\": \"savitha.pai@example.com\", \"contrasena\": \"micheal\", \"telefono\": \"7561111311\", \"genero\": \"female\", \"calle\": {\"nombre\": \"Altamount Rd\", \"numero\": 8277}, \"imagen\": {\"grande\": \"https://randomuser.me/api/portraits/women/53.jpg\", \"mediana\": \"https://randomuser.me/api/portraits/med/women/53.jpg\", \"miniatura\": \"https://randomuser.me/api/portraits/thumb/women/53.jpg\"}}]",
         "idHref": "actualizarUsuario"
@@ -131,12 +131,135 @@
         "id": "c312431a-139d-4e04-bc90-fe22a8b491a7",
         "titulo": "Eliminar un usuario",
         "descripcion": "Puedes eliminar un usuario pasándole como parámetro la id y poniendo el método DELETE al endpoint /usuarios/:id",
-        "codigoReq": "fetch('http://localhost:4000/usuarios/3fd2718e-d2b3-4e1c-a6a6-1d8875144b95', { \n\tmethod: 'DELETE' \n})",
-        "copiar": "fetch('http://localhost:4000/usuarios/3fd2718e-d2b3-4e1c-a6a6-1d8875144b95', { method: 'DELETE' })",
+        "codigoReq": "fetch('https://proyectotfg.onrender.com/usuarios/3fd2718e-d2b3-4e1c-a6a6-1d8875144b95', { \n\tmethod: 'DELETE' \n})",
+        "copiar": "fetch('https://proyectotfg.onrender.com/usuarios/3fd2718e-d2b3-4e1c-a6a6-1d8875144b95', { method: 'DELETE' })",
         "info": "Recuerda que se simula la eliminación del usuario, por lo tanto, no se guarda el cambio en nuestra base de datos.",
         "codigoRes": "[{ \"message\": \"Usuario eliminado\" }]",
         "idHref": "eliminarUsuario"
       }
+    ]
+  },
+  {
+    "id": "686e9eff-6c58-4b88-bb83-4f514291ea17",
+    "contenido": [
+      {
+        "id": "1859b11c-67fb-484c-84b7-618a7afa2269",
+        "titulo": "Introducción",
+        "descripcion": "En este apartado se explica sobre como empezar a utilizar el explorador de la API. Podrás solicitar animes, géneros y usuarios. Además de realizar peticiones GET, puedes hacerlas con POST, PATCH y DELETE. Añade parámetros al cuerpo de la petición para probar el explorador con los métodos POST Y PATCH. Lee la documentación para saber que atributos puedes usar y como utilizarlos."
+      },
+      {
+        "id": "196d78c6-f52e-4541-a8d5-ed6e3373d52c",
+        "titulo": "Tu primera solicitud",
+        "descripcion": "Para realizar la primera petición, vamos a ir a la página Explorador de la API y verás que aparece https://proyectotfg.onrender.com/animes. \nPulsa en enviar y te aparecerá una lista de 63 animes.\n¡¡ENHORABUENA has realizado tu primera solicitud a nuestra API!!"
+      }
+    ]
+  },
+  {
+    "id": "add2a6c3-9c94-45f4-a296-ef95d0ca0880",
+    "contenido": [
+      {
+        "id": "c0ec897d-70ed-40a3-96d2-c167b5357516",
+        "titulo": "Animes - Explorador de la API",
+        "descripcion": "En este apartado aprenderás a como puedes manejar y hacer consultas POST y PATCH sobre los animes que proporcionamos. Al añadir un parámetro aparece para que introduzcas una clave y un valor.\nClaves que puedes pasar de un anime en el explorador de la API:",
+        "opciones": [
+          {
+            "idOpcion": "7100799-611e-4c8d-94b2-bc9f793f55d4",
+            "clave": "estudio"
+          },
+          {
+            "idOpcion": "b991a1d9-06b8-4f9a-a789-e2b91525720a",
+            "clave": "generos",
+            "definicion": "Pasa todos los géneros separados por comas en el apartado del valor."
+          },
+          {
+            "idOpcion": "dbc686aa-6854-47f9-bc6d-d5dfbc90bcd6",
+            "clave": "descripcion"
+          },
+          {
+            "idOpcion": "013170fc-d407-4576-9f17-be3543d37429",
+            "clave": "titulo_enlace",
+            "definicion": "Si quieres modificar solo esta propiedad le tienes que añadir otro parámetro con la clave titulo_texto y ponerle como valor la misma información que tenga ese anime."
+          },
+          {
+            "idOpcion": "8ca09e65-42d4-4bb8-a9bf-0560747a579c",
+            "clave": "titulo_texto",
+            "definicion": "Si quieres modificar solo esta propiedad le tienes que añadir otro parámetro con la clave titulo_enlace y ponerle como valor la misma información que tenga ese anime."
+          },
+          {
+            "idOpcion": "38c53fa8-6955-45ec-89a5-3f0226c7ef82",
+            "clave": "fechaInicio"
+          }
+        ],
+        "idHref": "exploradorAnime"
+      }
+    ]
+  },
+  {
+    "id": "98eac0ae-6d2e-4a75-a233-f1045c2cc3e8",
+    "contenido": [
+      {
+        "id": "acd85265-6291-45e0-833d-40dc71b333e7",
+        "titulo": "Usuarios - Explorador de la API",
+        "descripcion": "En este apartado aprenderás a como puedes manejar y hacer consultas POST y PATCH sobre los usuarios que proporcionamos. Al añadir un parámetro aparece para que introduzcas una clave y un valor.\nClaves que puedes pasar de un usuario en el explorador de la API:",
+        "opciones": [
+          {
+            "idOpcion": "7d8fbf8b-c998-44f4-a8c0-859cdea4db8a",
+            "clave": "nombre_pila",
+            "definicion": "Si quieres modificar solo esta propiedad le tienes que añadir otro parámetro con la clave nombre_apellido y ponerle como valor la misma información que tenga ese usuario."
+          },
+          {
+            "idOpcion": "9eace754-a43d-4fe0-828a-2b837e6a9ac7",
+            "clave": "nombre_apellido",
+            "definicion": "Si quieres modificar solo esta propiedad le tienes que añadir otro parámetro con la clave nombre_pila y ponerle como valor la misma información que tenga ese usuario."
+          },
+          {
+            "idOpcion": "4b76843e-2624-4079-91a3-2d9b3d31458a",
+            "clave": "usuario"
+          },
+          {
+            "idOpcion": "4678c84e-457c-4740-ac24-81b011859a89",
+            "clave": "email"
+          },
+          {
+            "idOpcion": "cedf32e9-c824-4965-bf80-b61bfbc1ef38",
+            "clave": "contrasenia"
+          },
+          {
+            "idOpcion": "479fb5df-2a00-43ae-b2c6-ed68d3f75420",
+            "clave": "telefono"
+          },
+          {
+            "idOpcion": "a3e15a89-565a-4829-ac00-0f26f2cef4c3",
+            "clave": "genero"
+          },
+          {
+            "idOpcion": "15c308f7-6f45-4363-922b-96ab4167d066",
+            "clave": "calle_nombre",
+            "definicion": "Si quieres modificar solo esta propiedad le tienes que añadir otro parámetro con la clave calle_numero y ponerle como valor la misma información que tenga ese usuario."
+          },
+          {
+            "idOpcion": "190a67fb-1150-4f6e-9efa-fa666ebcd190",
+            "clave": "calle_numero",
+            "definicion": "Si quieres modificar solo esta propiedad le tienes que añadir otro parámetro con la clave calle_nombre y ponerle como valor la misma información que tenga ese usuario."
+          },
+          {
+            "idOpcion": "b753216f-2ce5-4ad3-9a1b-d15370a4a875",
+            "clave": "imagen_grande",
+            "definicion": "Si quieres modificar solo esta propiedad le tienes que añadir otros parámetros con las claves imagen_mediana, imagen_miniatura y ponerle como valor la misma información que tenga ese usuario."
+          },
+          {
+            "idOpcion": "d36846f8-0f87-4b15-be7e-9dfbe965f8a8",
+            "clave": "imagen_mediana",
+            "definicion": "Si quieres modificar solo esta propiedad le tienes que añadir otros parámetros con las claves imagen_grande, imagen_miniatura y ponerle como valor la misma información que tenga ese usuario."
+          },
+          {
+            "idOpcion": "ffefbbf0-dcd8-4aa9-bcdd-24926a505425",
+            "clave": "imagen_miniatura",
+            "definicion": "Si quieres modificar solo esta propiedad le tienes que añadir otros parámetros con las claves imagen_grande, imagen_mediana y ponerle como valor la misma información que tenga ese usuario."
+          }
+        ],
+        "idHref": "exploradorUsuario"
+      } 
     ]
   }
 ]
