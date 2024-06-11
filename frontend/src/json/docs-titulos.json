@@ -26,5 +26,23 @@
         "titulo": "Usuarios"
       }
     ]
+  },
+  {
+    "id": "1a41b142-ec75-4bd1-b1cc-738d2588ce0c",
+    "titulo": "Explorador de la API",
+    "subtitulos": [
+      {
+        "id": "686e9eff-6c58-4b88-bb83-4f514291ea17",
+        "titulo":"Primeros pasos"
+      },
+      {
+        "id": "add2a6c3-9c94-45f4-a296-ef95d0ca0880",
+        "titulo":"Animes"
+      },
+      {
+        "id": "98eac0ae-6d2e-4a75-a233-f1045c2cc3e8",
+        "titulo":"Usuarios"
+      }
+    ]
   }
 ]
