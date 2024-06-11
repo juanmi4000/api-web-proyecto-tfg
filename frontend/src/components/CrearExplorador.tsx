@@ -4,6 +4,7 @@ import { SelectOpciones } from './SelectOpciones'
 import { FormularioExplorador } from './FormularioExplorador'
 import type { Anime, Titulo, Usuario, UsuarioCalle, UsuarioImagen, UsuarioNombre, Parametros, Respuesta } from '@/tipos/tipos'
 import '@/estilos/crear-explorador.css'
+import { ErrorInputs, validarPeticion } from '@/utilidades/utilidades'
 
 interface Props {
   children: string
@@ -32,6 +33,7 @@ export function CrearExplorador ({ children }: Props): JSX.Element {
 
   const comprobarParametros = (divs: NodeListOf<HTMLDivElement>, value: string): Anime | Usuario | undefined => {
     const [endpoint] = value.split('/')
+    validarPeticion(value, opcion)
     if (endpoint === 'animes') {
       const anime: Anime = {}
       const titulo: Titulo = {}
@@ -99,8 +101,11 @@ export function CrearExplorador ({ children }: Props): JSX.Element {
         if (parametrosDiv === null) return
         const divs = parametrosDiv.querySelectorAll('div')
         const objeto: Anime | Usuario | undefined = comprobarParametros(divs, endpoint.value)
+        if (JSON.stringify(objeto) === '{}') {
+          throw new ErrorInputs('No has añadido ningún parámetro', 'Error')
+        }
         respuestaServer = await fetch(
-          `http://localhost:4002/${endpoint.value}`,
+          `https://proyectotfg.onrender.com/${endpoint.value}`,
           {
             method: opcion.toUpperCase(),
             headers: {
@@ -111,7 +116,7 @@ export function CrearExplorador ({ children }: Props): JSX.Element {
         ).then(async (res) => await res.json())
       } else {
         respuestaServer = await fetch(
-          `http://localhost:4002/${endpoint.value}`,
+          `https://proyectotfg.onrender.com/${endpoint.value}`,
           {
             method: opcion.toUpperCase()
           }
@@ -123,7 +128,9 @@ export function CrearExplorador ({ children }: Props): JSX.Element {
       }
       setRespuesta(respuestaServer)
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof ErrorInputs) {
+        setRespuesta({ [error.campo]: error.message })
+      } else if (error instanceof Error) {
         setRespuesta({ error: error.message })
       } else {
         setRespuesta({ error: 'Ha ocurrido un error inesperado' })

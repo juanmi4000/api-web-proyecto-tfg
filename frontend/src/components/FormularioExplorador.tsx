@@ -1,8 +1,12 @@
+import { useState } from 'react'
+
 interface Props {
   manejadorFormulario: (event: React.FormEvent<HTMLFormElement>) => Promise<void>
   flechaIzq: React.ReactNode
 }
 export function FormularioExplorador ({ manejadorFormulario, flechaIzq }: Props): JSX.Element {
+  const [valor, setValor] = useState('animes')
+
   return (
     <header className='text-center bg-[rgb(var(--color-btn-border))] w-full py-3 rounded-sm'>
       <form
@@ -13,11 +17,13 @@ export function FormularioExplorador ({ manejadorFormulario, flechaIzq }: Props)
       >
         <label className='flex flex-col sm:flex-row items-center gap-2'>
           <span className='hidden md:block'>{flechaIzq}</span>
-          http://localhost:4002/
+          <span>https://proyectotfg.onrender.com/</span>
           <input
             type='text'
             name='endpoint'
             className='rounded-md flex gap-2 w-full'
+            value={valor}
+            onChange={(e) => setValor(e.target.value)}
           />
         </label>
         <input

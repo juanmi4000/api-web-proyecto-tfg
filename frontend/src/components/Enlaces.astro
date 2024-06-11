@@ -11,9 +11,10 @@ const { href, texto, activo } = Astro.props;
 <a
   class:list={[
     "w-px-2 py-[1px] pb-1",
-    { "border-b-[1px] border-b-[rgb(var(--color-btn-border))]": activo,
+    { 
+      "border-b-[1px] border-b-[rgb(var(--color-btn-border))] after:hidden": activo,
       "relative": !activo
-     },
+    },
   ]}
   href={href}>{texto}</a
 >
