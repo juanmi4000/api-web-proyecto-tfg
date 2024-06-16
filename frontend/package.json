@@ -2,6 +2,7 @@
   "name": "frontend",
   "type": "module",
   "version": "0.0.1",
+  "browserslist": "> 0.07%, last 4 version, not dead",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,17 +11,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/react": "^3.5.0",
+    "@astrojs/check": "0.7.0",
+    "@astrojs/react": "3.5.0",
     "@astrojs/tailwind": "5.1.0",
     "@midudev/tailwind-animations": "0.0.7",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "astro": "^4.10.1",
+    "astro": "4.10.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-toastify": "^10.0.5",
-    "remixicons": "^1.0.0",
-    "tailwindcss": "3.4.3"
+    "react-toastify": "10.0.5",
+    "remixicons": "1.0.0"
   }
 }

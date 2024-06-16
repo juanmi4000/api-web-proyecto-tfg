@@ -151,16 +151,16 @@ export function CrearExplorador ({ children }: Props): JSX.Element {
 
   return (
     <>
-      <article className='my-2 flex flex-col items-center gap-5 w-full md:bg-[rgb(var(--color-btn-border))] md:px-8 md:flex-row'>
+      <article className='my-2 flex flex-col items-center gap-5 w-full md:bg-[rgb(var(--color-gris-claro))] md:px-8 md:flex-row'>
         <SelectOpciones setOpcion={setOpcion} setParametros={setParametros} />
         <FormularioExplorador manejadorFormulario={manejadorFormulario} flechaIzq={children} />
       </article>
       <article className='cuerpo-respuesta gap-2 text-black'>
-        <div className='bg-[rgb(var(--color-btn-border))] rounded p-2 flex flex-col items-center overflow-y-auto'>
+        <div className='bg-[rgb(var(--color-gris-claro))] rounded p-2 flex flex-col items-center overflow-y-auto'>
           {(!esGet && !esDetete) && <AnadirParamentros manejadorParametros={manejadorParametros} manejadorCerrar={manejadorCerrar} parametros={parametros} />}
         </div>
 
-        <code className='bg-[rgb(var(--color-btn-border))] w-full overflow-y-auto text-wrap rounded-sm'>
+        <code className='bg-[rgb(var(--color-gris-claro))] w-full overflow-y-auto text-wrap rounded-sm'>
           {respuesta !== null && (
             <pre>{JSON.stringify(respuesta, null, 2)}</pre>
           )}

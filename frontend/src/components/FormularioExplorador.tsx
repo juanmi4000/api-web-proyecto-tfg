@@ -8,7 +8,7 @@ export function FormularioExplorador ({ manejadorFormulario, flechaIzq }: Props)
   const [valor, setValor] = useState('animes')
 
   return (
-    <header className='text-center bg-[rgb(var(--color-btn-border))] w-full py-3 rounded-sm'>
+    <header className='text-center bg-[rgb(var(--color-gris-claro))] w-full py-3 rounded-sm'>
       <form
         className='flex flex-col gap-2 items-center text-black md:flex-row md:justify-between'
         onSubmit={(event) => {
@@ -29,7 +29,7 @@ export function FormularioExplorador ({ manejadorFormulario, flechaIzq }: Props)
         <input
           type='submit'
           value='Enviar'
-          className='bg-[#B3B2AE] w-max py-1 px-5 rounded-md cursor-pointer'
+          className='bg-[rgb(var(--color-gris-claro))] w-max py-1 px-5 rounded-md cursor-pointer'
         />
       </form>
     </header>

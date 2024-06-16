@@ -3,7 +3,7 @@ import fs from 'node:fs'
 // leer un JSON lo recomendado
 import { createRequire } from 'node:module'
 const require = createRequire(import.meta.url) // tiene la dirección del archivo actual
-const animes = require('../../animes.json')
+const animes = require('../json-copia/animes.json')
 
 const generos = []
 
@@ -29,5 +29,3 @@ fs.writeFileSync(
   '../../generos-copia.json',
   JSON.stringify(jsonGeneros, null, 2)
 )
-
-// generos.forEach((genero) => console.log(genero));

@@ -50,6 +50,6 @@ for (let i = 0; i < 20; i++) {
 }
 
 fs.writeFileSync(
-  "../../src/json/usuarios.json",
+  "../json-copia/usuarios.json",
   JSON.stringify(usuarios, null, 2)
 );

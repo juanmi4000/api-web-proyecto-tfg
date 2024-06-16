@@ -5,9 +5,9 @@ import { exit } from 'node:process'
 // import { Anime, Genero, Usuario } from '../../src/tipos/typos'
 
 const leerArchivo = createRequire(import.meta.url)
-const animes = leerArchivo('../../src/json/animes.json')
-const generos = leerArchivo('../../src/json/generos.json.json')
-const usuarios = leerArchivo('../../src/json/usuarios.json')
+const animes = leerArchivo('../json-copia/animes.json')
+const generos = leerArchivo('../json-copia/generos.json')
+const usuarios = leerArchivo('../json-copia/usuarios.json')
 /* const animesValidados = animes as Anime[]
 const generosValidadas = generos as Genero[]
 const usuariosValidados = usuarios as Usuario[] */

@@ -5,8 +5,10 @@ import { crearGenerosRouter } from './rutas/generos'
 import { crearUsuariosRouter } from './rutas/usuarios'
 import { AnimeModeloInter, GenerosModeloInter, UsuarioModeloInter } from './tipos/tipos'
 
-export function crearApi ({ animeModelo, generoModelo, usuarioModelo, PUERTO }: { animeModelo: AnimeModeloInter, generoModelo: GenerosModeloInter, usuarioModelo: UsuarioModeloInter, PUERTO: number }): void {
+export function crearApi ({ animeModelo, generoModelo, usuarioModelo, PUERTO }: { animeModelo: AnimeModeloInter, generoModelo: GenerosModeloInter, usuarioModelo: UsuarioModeloInter, PUERTO: number | string }): void {
   const app = express()
+
+  const PORT = (typeof PUERTO === 'string') ? parseInt(PUERTO) : PUERTO
 
   app.disable('x-powered-by')
 
@@ -23,7 +25,7 @@ export function crearApi ({ animeModelo, generoModelo, usuarioModelo, PUERTO }: 
 
   app.use('/usuarios', crearUsuariosRouter({ usuarioModelo }))
 
-  app.listen(PUERTO, () => {
+  app.listen(PORT, () => {
     console.log(`El servidor de la API está corriendo en el puerto http://localhost:${PUERTO}`)
   })
 }

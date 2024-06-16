@@ -104,9 +104,9 @@ export function DocumentacionComp (): JSX.Element {
 
   return (
     <main className='relative px-5' id='ocultar-main'>
-      <section className='absolute text-black h-16 px-6 py-5 border-t-2 w-full top-0 left-0 bg-[rgb(var(--color-header))] md:hidden'>
+      <section className='absolute text-black h-16 px-6 py-5 border-t-2 w-full top-0 left-0 bg-[rgb(var(--color-gris-grafito))] md:hidden'>
         <select
-          className='rounded-md px-2 py-0.5 bg-[rgb(var(--color-fondo-copiar))]'
+          className='rounded-md px-2 py-0.5 bg-[rgb(var(--color-gris-claro))]'
           onChange={(e) => {
             manejadorSelect(e)
           }}
@@ -167,9 +167,9 @@ export function DocumentacionComp (): JSX.Element {
                 {codigoReq !== undefined && (
                   <>
                     <p className='text-lg mb-7'>Petición:</p>
-                    <code className='relative mb-3 block bg-[rgb(var(--color-fondo-codigo))] p-0.5 rounded-md w-full text-black'>
+                    <code className='relative mb-3 block bg-[rgb(var(--color-gris-marmol))] p-0.5 rounded-md w-full text-black'>
                       <button
-                        className='absolute top-2 right-2 border bg-[rgb(var(--color-fondo-copiar))] p-1 rounded'
+                        className='absolute top-2 right-2 border bg-[rgb(var(--color-gris-claro))] p-1 rounded'
                         data-copiar={copiar}
                         onClick={(e) => {
                           copiarPortapapeles(e).catch((error) => {
