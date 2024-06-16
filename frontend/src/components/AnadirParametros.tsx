@@ -15,6 +15,7 @@ export function AnadirParamentros ({ manejadorParametros, parametros, manejadorC
       <button
         className='text-base text-slate-700'
         onClick={manejadorParametros}
+        aria-label='Añadir parámetros'
       >
         Añadir parámetros
       </button>
@@ -32,8 +33,8 @@ export function AnadirParamentros ({ manejadorParametros, parametros, manejadorC
               >
                 <CerrarSvg class='w-5' />
               </button>
-              <input type='text' placeholder='Clave' className='w-full' />
-              <input type='text' placeholder='Valor' className='w-full' />
+              <input type='text' placeholder='Clave' aria-label='Entrada para la clave' className='w-full' />
+              <input type='text' placeholder='Valor' aria-label='Entrada para el valor' className='w-full' />
             </div>
           )
         })}

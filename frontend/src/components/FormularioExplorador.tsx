@@ -24,11 +24,13 @@ export function FormularioExplorador ({ manejadorFormulario, flechaIzq }: Props)
             className='rounded-md flex gap-2 w-full'
             value={valor}
             onChange={(e) => setValor(e.target.value)}
+            aria-label='Introducir endpoint'
           />
         </label>
         <input
           type='submit'
           value='Enviar'
+          aria-label='Enviar petición'
           className='bg-[rgb(var(--color-gris-claro))] w-max py-1 px-5 rounded-md cursor-pointer'
         />
       </form>

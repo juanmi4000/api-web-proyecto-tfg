@@ -5,12 +5,12 @@ import { MostrarOcultarInfo } from '@comp/BtnMostrar'
 import { AsteriscoReact } from '@/multimedia/iconos/Asterisco'
 import { CopiarReact } from '@/multimedia/iconos/Copiar'
 import { toast, ToastContainer } from 'react-toastify'
-import type { Opciones } from '@/tipos/tipos'
+import type { Contenido, DocsInfo } from '@/tipos/tipos'
 import { DocsLista } from './DocsLista'
 import 'react-toastify/dist/ReactToastify.css'
 import '@/estilos/documentacion.css'
 
-interface Contenido {
+/* interface Contenido {
   id: `${string}-${string}-${string}-${string}-${string}`
   titulo: string
   descripcion: string
@@ -25,7 +25,7 @@ interface Contenido {
 interface DocsInfo {
   id: `${string}-${string}-${string}-${string}-${string}`
   contenido: Contenido[]
-}
+} */
 
 export function DocumentacionComp (): JSX.Element {
   const [idMostrarInfo, setIdMostrarInfo] = useState<Contenido['id']>(
@@ -135,6 +135,7 @@ export function DocumentacionComp (): JSX.Element {
                     setIdMostrarInfo((idSubtitulo as Contenido['id']))
                     setTituloPrincipal(subtitulo)
                   }}
+                  aria-label={`Mostrar contenido de ${(subtitulo as string)}`}
                 >
                   {subtitulo}
                 </button>
@@ -176,6 +177,7 @@ export function DocumentacionComp (): JSX.Element {
                             console.error(error)
                           })
                         }}
+                        aria-label='Copiar codigo petición'
                       >
                         <span>
                           <CopiarReact clases='w-5' />
@@ -206,10 +208,11 @@ export function DocumentacionComp (): JSX.Element {
           <h3 className='font-fugaz text-lg'>En esta página</h3>
           {info.map(({ id, idHref, titulo }) => (
             <a
-              href={`#${idHref}`}
+              href={`#${(idHref as string)}`}
               key={id}
               className='text-base hover:text-slate-400'
               onClick={(e) => { manejadorEnlace(e, idHref) }}
+              aria-label={`Ir a la sección de ${(idHref as string)}`}
             >
               {titulo}
             </a>

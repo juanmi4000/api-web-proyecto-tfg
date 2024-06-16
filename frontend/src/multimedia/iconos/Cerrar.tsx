@@ -6,6 +6,7 @@ export function CerrarSvg (props: Props): JSX.Element {
   return (
     <svg
       className={props.class}
+      aria-label='Eliminar parámetro'
       viewBox='0 0 24 24'
       fill='currentColor'
     >

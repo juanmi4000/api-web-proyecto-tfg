@@ -30,6 +30,7 @@ export function MostrarOcultarInfo ({ codigoRes }: Props): JSX.Element {
       <button
         onClick={manejadorBtn}
         className='bg-[rgb(var(--color-btn-mostrar))] p-2 mb-7 rounded-md lg:text-ellipsis'
+        aria-label='Mostrat la respuesta de la petición'
       >
         {!pulsado ? 'Mostrar respuesta' : 'Ocultar respuesta'}
       </button>

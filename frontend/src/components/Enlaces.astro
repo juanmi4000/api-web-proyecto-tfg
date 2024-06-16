@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { href, texto, activo } = Astro.props;
+const textoMinusculas = texto.toLowerCase()
 ---
 
 <a
@@ -16,6 +17,7 @@ const { href, texto, activo } = Astro.props;
       "relative": !activo
     },
   ]}
+  aria-label={"Página de " + textoMinusculas}
   href={href}>{texto}</a
 >
 

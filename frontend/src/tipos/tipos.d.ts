@@ -51,3 +51,20 @@ export interface Opciones {
   clave: string
   definicion?: string
 }
+
+export interface Contenido {
+  id: `${string}-${string}-${string}-${string}-${string}`
+  titulo: string
+  descripcion: string
+  codigoReq?: string
+  codigoRes?: string
+  copiar?: string
+  info?: string
+  idHref: string
+  opciones?: Opciones[]
+}
+
+export interface DocsInfo {
+  id: `${string}-${string}-${string}-${string}-${string}`
+  contenido: Contenido[]
+}
