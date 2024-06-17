@@ -31,7 +31,7 @@ export function FormularioExplorador ({ manejadorFormulario, flechaIzq }: Props)
           type='submit'
           value='Enviar'
           aria-label='Enviar petición'
-          className='bg-[rgb(var(--color-gris-claro))] w-max py-1 px-5 rounded-md cursor-pointer'
+          className='bg-[rgb(var(--color-gris-grafito))] text-white w-max py-1 px-5 rounded-md cursor-pointer'
         />
       </form>
     </header>
